@@ -23,7 +23,7 @@ export function Hero() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   return (
-    <section className="relative pt-28 pb-20 overflow-hidden bg-gradient-to-b from-[#0B0418] via-[#12072B] to-[#180A38] text-white">
+    <section className="relative pt-16 sm:pt-20 pb-20 overflow-hidden bg-gradient-to-b from-[#0B0418] via-[#12072B] to-[#180A38] text-white">
       {/* Background Dot Matrix Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#8B5CF6_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none" />
 
