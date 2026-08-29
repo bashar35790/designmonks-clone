@@ -80,9 +80,9 @@ export function DualMarquee() {
   const renderLogo = (item: { src: string; name: string }, idx: number) => (
     <div
       key={idx}
-      className="flex items-center justify-center h-16 sm:h-20 px-6 sm:px-10 flex-shrink-0 opacity-75 hover:opacity-100 transition-opacity duration-300"
+      className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-6 sm:px-10 flex-shrink-0 opacity-80 hover:opacity-100 transition-opacity duration-300"
     >
-      <div className="relative h-8 sm:h-10 md:h-12 w-36 sm:w-48 md:w-56 flex items-center justify-center">
+      <div className="relative h-9 sm:h-12 md:h-14 w-36 sm:w-48 md:w-56 flex items-center justify-center">
         <Image
           src={item.src}
           alt={item.name}
@@ -104,22 +104,22 @@ export function DualMarquee() {
       {/* 4 Continuous Marquee Rows with Larger Logo Sizing & Prominent Motion */}
       <div className="space-y-6 sm:space-y-8">
         {/* Row 1: Left */}
-        <Marquee direction="left" duration="30s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="left" duration="28s" pauseOnHover={false} repeat={2}>
           {ROW_1_LOGOS.map(renderLogo)}
         </Marquee>
 
         {/* Row 2: Right */}
-        <Marquee direction="right" duration="30s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="right" duration="28s" pauseOnHover={false} repeat={2}>
           {ROW_2_LOGOS.map(renderLogo)}
         </Marquee>
 
         {/* Row 3: Left */}
-        <Marquee direction="left" duration="30s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="left" duration="28s" pauseOnHover={false} repeat={2}>
           {ROW_3_LOGOS.map(renderLogo)}
         </Marquee>
 
         {/* Row 4: Right */}
-        <Marquee direction="right" duration="30s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="right" duration="28s" pauseOnHover={false} repeat={2}>
           {ROW_4_LOGOS.map(renderLogo)}
         </Marquee>
       </div>
