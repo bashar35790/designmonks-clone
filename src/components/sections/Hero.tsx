@@ -3,10 +3,41 @@
 import React from "react";
 import Image from "next/image";
 import { Star, ArrowRight, Smile } from "lucide-react";
+import { Marquee } from "@/components/ui/Marquee";
+
+const HERO_MARQUEE_ROW_1 = [
+  "/images/herocarousel/1.avif",
+  "/images/herocarousel/2.avif",
+  "/images/herocarousel/3.avif",
+  "/images/herocarousel/4.avif",
+  "/images/herocarousel/5.avif",
+  "/images/herocarousel/6.avif",
+  "/images/herocarousel/7.avif",
+  "/images/herocarousel/8.avif",
+  "/images/herocarousel/9.avif",
+  "/images/herocarousel/10.avif",
+  "/images/herocarousel/11.avif",
+  "/images/herocarousel/12.avif",
+];
+
+const HERO_MARQUEE_ROW_2 = [
+  "/images/herocarousel/13.avif",
+  "/images/herocarousel/14.avif",
+  "/images/herocarousel/15.avif",
+  "/images/herocarousel/16.avif",
+  "/images/herocarousel/17.avif",
+  "/images/herocarousel/18.avif",
+  "/images/herocarousel/19.avif",
+  "/images/herocarousel/20.avif",
+  "/images/herocarousel/21.avif",
+  "/images/herocarousel/22.avif",
+  "/images/herocarousel/23.avif",
+  "/images/herocarousel/24.avif",
+];
 
 export function Hero() {
   return (
-    <section className="relative min-h-[95vh] sm:min-h-screen flex flex-col items-center justify-center pt-8 pb-32 px-4 sm:px-6 lg:px-8 text-center overflow-hidden bg-[#12072B]">
+    <section className="relative min-h-[95vh] sm:min-h-screen flex flex-col items-center justify-center pt-8 pb-20 text-center overflow-hidden bg-[#12072B]">
       {/* Background SVG Gradient & Dot Matrix (from public/images) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <Image
@@ -25,7 +56,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto flex flex-col items-center">
+      <div className="relative z-10 max-w-6xl mx-auto flex flex-col items-center px-4 sm:px-6 lg:px-8 mb-16">
         {/* Top Logo: designmonks */}
         <div className="mb-5 select-none">
           <span className="font-title font-extrabold text-2xl sm:text-3xl tracking-tight text-white">
@@ -93,7 +124,7 @@ export function Hero() {
           <span className="font-brand italic font-normal text-white">Results</span>
         </h1>
 
-        {/* Global Country Badge SVG (herocountybaget.svg from public/images) */}
+        {/* Global Country Badge SVG */}
         <div className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-black/70 border border-emerald-500/40 shadow-[0_0_20px_rgba(16,185,129,0.15)] backdrop-blur-md mb-6">
           <div className="relative w-[340px] sm:w-[406px] h-6 flex items-center justify-center">
             <Image
@@ -114,12 +145,53 @@ export function Hero() {
           {/* Inner Button Content */}
           <a
             href="#contact"
-            className="relative z-10 flex items-center gap-2 px-8 py-3.5 rounded-[inherit] bg-gradient-to-r from-[#6320EE] via-[#7028E8] to-[#7C3AED] hover:from-[#561CD0] hover:to-[#6D28D9] text-white font-title font-bold text-sm sm:text-base tracking-wide transition-all active:scale-[0.98] select-none"
+            className="relative z-10 flex items-center gap-2 px-8 py-3.5 rounded-[inherit] bg-gradient-to-r from-[#6320EE] via-[#7028E8] to-[#7C3AED] hover:from-[#561CD0] hover:to-[#6D28D9] text-white font-title font-bold text-sm sm:text-base tracking-wide transition-all active:scale-[0.98] select-none cursor-pointer"
           >
             <span>Book a Call</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
+      </div>
+
+      {/* 2 Continuous Moving Dual-Marquee Rows (12 Images Each) */}
+      <div className="w-full space-y-4 sm:space-y-6 overflow-hidden relative z-10">
+        {/* Row 1: Left Direction (Images 1 - 12) */}
+        <Marquee direction="left" speed="slow" pauseOnHover={true} repeat={2}>
+          {HERO_MARQUEE_ROW_1.map((src, idx) => (
+            <div
+              key={idx}
+              className="relative w-[280px] sm:w-[360px] md:w-[420px] aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-950 border border-white/10 shadow-2xl flex-shrink-0 hover:scale-[1.02] transition-transform duration-300 group cursor-pointer"
+            >
+              <Image
+                src={src}
+                alt={`Showcase Project ${idx + 1}`}
+                fill
+                sizes="(max-width: 768px) 280px, 420px"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+          ))}
+        </Marquee>
+
+        {/* Row 2: Right Direction (Images 13 - 24) */}
+        <Marquee direction="right" speed="slow" pauseOnHover={true} repeat={2}>
+          {HERO_MARQUEE_ROW_2.map((src, idx) => (
+            <div
+              key={idx}
+              className="relative w-[280px] sm:w-[360px] md:w-[420px] aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-950 border border-white/10 shadow-2xl flex-shrink-0 hover:scale-[1.02] transition-transform duration-300 group cursor-pointer"
+            >
+              <Image
+                src={src}
+                alt={`Showcase Project ${idx + 13}`}
+                fill
+                sizes="(max-width: 768px) 280px, 420px"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+          ))}
+        </Marquee>
       </div>
 
       {/* Floating Bottom-Right Support Chat Widget */}
