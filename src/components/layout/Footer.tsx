@@ -114,17 +114,6 @@ export function Footer() {
       {/* SECTION 2: Navigation Links */}
       <section className="relative z-10 border-t border-white/5 bg-[#080808] pt-16 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          {/* Footer Logo */}
-          <div className="mb-12">
-            <Image
-              src="/images/footer/footerwithlogo.avif"
-              alt="Design Monks logo"
-              width={180}
-              height={60}
-              priority
-              className="w-auto h-12 sm:h-14 object-contain"
-            />
-          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
             {navSections.map((sec, idx) => (
@@ -172,10 +161,10 @@ export function Footer() {
                     alt={partner.name}
                     width={80}
                     height={24}
-                    className="h-5 w-auto object-contain"
+                    className="h-10 w-auto object-contain"
                   />
                 </div>
-                <p className="text-[10px] text-zinc-500 font-medium tracking-tight">
+                <p className="text-[16px] text-zinc-500 font-medium tracking-tight">
                   {partner.subtext}
                 </p>
               </div>
@@ -183,7 +172,7 @@ export function Footer() {
           </div>
 
           {/* Legal / Copyright Bar */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400 border-t border-white/5 pt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xl text-white border-t border-white/5 pt-8">
             <Link href="/terms" className="hover:text-white transition-colors">
               Terms &amp; Conditions
             </Link>
