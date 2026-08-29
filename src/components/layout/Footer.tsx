@@ -61,12 +61,12 @@ const navSections = [
 
 // --- Partner Badges ---
 const partners = [
-  { name: "Framer", subtext: "Professional Partner", iconPath: "/footer/framer.svg" },
-  { name: "Webflow", subtext: "Professional Partner", iconPath: "/footer/webflow.svg" },
-  { name: "Behance", subtext: "Top Team On Behance", iconPath: "/footer/behance.svg" },
-  { name: "Dribbble", subtext: "Top Team On Dribbble", iconPath: "/footer/dribbble.svg" },
-  { name: "Clutch", subtext: "Reviewed On", iconPath: "/footer/clutch.svg", hasStars: true },
-  { name: "Google", subtext: "Reviewed On", iconPath: "/footer/google.svg", hasStars: true },
+  { name: "Framer", subtext: "Professional Partner", iconPath: "/images/footer/68a1a630288a807b150cd91a_Frame 1116606739.svg" },
+  { name: "Webflow", subtext: "Professional Partner", iconPath: "/images/footer/68a1a625f8231c1a57a017fc_Frame.svg" },
+  { name: "Behance", subtext: "Top Team On Behance", iconPath: "/images/footer/68a1a63eef83f7891cb55475_Frame 1116606740.svg" },
+  { name: "Dribbble", subtext: "Top Team On Dribbble", iconPath: "/images/footer/68a1a63eef83f7891cb55478_Frame 1116606741.svg" },
+  { name: "Clutch", subtext: "Reviewed On", iconPath: "/images/footer/68a1a63e1b6574571b18b9f9_Frame 1116606742.svg" },
+  { name: "Google", subtext: "Reviewed On", iconPath: "/images/footer/68a1a6571c705d568fbe3e0d_Google.svg" },
 ];
 
 export function Footer() {
@@ -114,6 +114,18 @@ export function Footer() {
       {/* SECTION 2: Navigation Links */}
       <section className="relative z-10 border-t border-white/5 bg-[#080808] pt-16 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
+          {/* Footer Logo */}
+          <div className="mb-12">
+            <Image
+              src="/images/footer/footerwithlogo.avif"
+              alt="Design Monks logo"
+              width={180}
+              height={60}
+              priority
+              className="w-auto h-12 sm:h-14 object-contain"
+            />
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
             {navSections.map((sec, idx) => (
               <div key={idx} className="space-y-4">
@@ -162,11 +174,6 @@ export function Footer() {
                     height={24}
                     className="h-5 w-auto object-contain"
                   />
-                  {partner.hasStars && (
-                    <div className="flex items-center text-amber-400 text-[10px]">
-                      {"★".repeat(5)}
-                    </div>
-                  )}
                 </div>
                 <p className="text-[10px] text-zinc-500 font-medium tracking-tight">
                   {partner.subtext}
@@ -195,7 +202,7 @@ export function Footer() {
         <div className="relative w-full h-[220px] sm:h-[280px] lg:h-[350px]">
           {/* Base Layer: Logo Watermark */}
           <Image
-            src="/footer/67cb19c5fc7cea1c4b1fc709_9e07db1ecae6aafdfe7fe0fa6c077ee6_FOOTER_2.avif"
+            src="/images/footer/footerlogo.avif"
             alt="designmonks background text"
             fill
             priority
@@ -204,7 +211,7 @@ export function Footer() {
 
           {/* Top Layer: Emerald Overlay & Lighting Grid */}
           <Image
-            src="/footer/footerwithlogo.avif"
+            src="/images/footer/footerwithlogo.avif"
             alt="designmonks green glow overlay"
             fill
             priority
