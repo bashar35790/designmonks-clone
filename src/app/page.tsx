@@ -53,9 +53,6 @@ export default function Home() {
         {/* 9. Comparison Matrix (Dark Cyber Grid with Purple Design Monks Column) */}
         <ComparisonTable />
 
-        {/* 10. Careers Teaser (Clean Light Background) */}
-        <CareersTeaser />
-
         {/* 11. Testimonials Wall (Multi-Row Review Cards on White) */}
         <TestimonialsWall />
 

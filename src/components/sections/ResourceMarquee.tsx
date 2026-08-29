@@ -55,7 +55,7 @@ export function ResourceMarquee() {
         <section className="py-16 bg-[#F3EBF9] overflow-hidden select-none flex flex-col gap-8">
 
             {/* 1st Row: Text Marquee (Left) */}
-            <Marquee speed={40} gradient={false} pauseOnHover>
+            <Marquee duration="40s" pauseOnHover>
                 <div className="flex items-center gap-8 pr-8">
                     {textItems.map((item, index) => (
                         <div key={`top-${index}`} className="flex items-center gap-8">
@@ -67,7 +67,7 @@ export function ResourceMarquee() {
             </Marquee>
 
             {/* 2nd Row: Image Devices Marquee (Right) */}
-            <Marquee speed={50} direction="right" gradient={false} pauseOnHover>
+            <Marquee duration="50s" direction="right" pauseOnHover>
                 <div className="flex items-center gap-6 pr-6 py-2">
                     {mediaItems.map((item, index) => (
                         <div
@@ -90,7 +90,7 @@ export function ResourceMarquee() {
             </Marquee>
 
             {/* 3rd Row: Text Marquee (Left) */}
-            <Marquee speed={40} gradient={false} pauseOnHover>
+            <Marquee duration="45s" pauseOnHover>
                 <div className="flex items-center gap-8 pr-8">
                     {textItems.map((item, index) => (
                         <div key={`bottom-${index}`} className="flex items-center gap-8">
