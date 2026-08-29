@@ -15,7 +15,7 @@ export function WhyChooseUs() {
           <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-emerald-500/40 bg-emerald-50 text-emerald-700 text-xs font-semibold mb-6 shadow-sm">
             Why Choose Us
           </div>
-          <h2 className="font-title text-3xl sm:text-5xl md:text-6xl font-extrabold text-zinc-900 tracking-tight leading-tight">
+          <h2 className="font-title text-3xl sm:text-5xl md:text-6xl font-bold text-zinc-900 tracking-tight leading-tight">
             Unmatched <span className="font-serif italic font-normal">Benefits</span> For{" "}
             <span className="font-serif italic font-normal block sm:inline">Your Success</span>
           </h2>
@@ -25,7 +25,7 @@ export function WhyChooseUs() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           {/* Card 1: Flexible Payment Plans */}
-          <div className="rounded-3xl p-8 bg-gradient-to-br from-[#D9E4FF] via-[#E2EAFF] to-[#D5E1FF] border border-white/60 shadow-sm relative overflow-hidden min-h-[380px] flex flex-col justify-between">
+          <div className="rounded-xl p-8 bg-gradient-to-br from-[#D9E4FF] via-[#E2EAFF] to-[#D5E1FF] border border-white/60 shadow-sm relative overflow-hidden min-h-[380px] flex flex-col justify-between">
             <div>
               <h3 className="text-2xl font-bold text-zinc-900 mb-1">Flexible Payment Plans</h3>
               <p className="text-sm text-zinc-600 mb-6">Pay your way</p>
@@ -68,7 +68,7 @@ export function WhyChooseUs() {
           </div>
 
           {/* Card 2: Unlimited Revision (Dark Feedback Box) */}
-          <div className="rounded-3xl p-8 bg-gradient-to-br from-[#D9E4FF] via-[#E2EAFF] to-[#D5E1FF] border border-white/60 shadow-sm relative overflow-hidden min-h-[380px] flex flex-col justify-between">
+          <div className="rounded-xl p-8 bg-gradient-to-br from-[#D9E4FF] via-[#E2EAFF] to-[#D5E1FF] border border-white/60 shadow-sm relative overflow-hidden min-h-[380px] flex flex-col justify-between">
             <div>
               <h3 className="text-2xl font-bold text-zinc-900 mb-2">Unlimited revision</h3>
               <p className="text-sm text-zinc-600 leading-relaxed max-w-md">
@@ -129,7 +129,7 @@ export function WhyChooseUs() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
           {/* Card 3: Lifetime Support (Purple Card) */}
-          <div className="lg:col-span-4 rounded-3xl p-8 bg-gradient-to-b from-[#8B5CF6] via-[#7C3AED] to-[#6D28D9] text-white shadow-xl relative overflow-hidden flex flex-col justify-between min-h-[380px]">
+          <div className="lg:col-span-4 rounded-xl p-8 bg-gradient-to-b from-[#8B5CF6] via-[#7C3AED] to-[#6D28D9] text-white shadow-xl relative overflow-hidden flex flex-col justify-between min-h-[380px]">
             <div>
               <h3 className="text-2xl font-bold mb-3">Lifetime Support</h3>
               <p className="text-xs text-purple-100 leading-relaxed opacity-90">
@@ -155,10 +155,10 @@ export function WhyChooseUs() {
           </div>
 
           {/* Card 4 & 5 Combined Container: Hand Picked Resources with Nested "Diverse Skill Set" */}
-          <div className="lg:col-span-8 rounded-3xl p-8 bg-gradient-to-br from-[#D9E4FF] via-[#E2EAFF] to-[#D5E1FF] border border-white/60 shadow-sm relative overflow-hidden flex flex-col lg:flex-row gap-8 items-center">
+          <div className="lg:col-span-8 rounded-xl p-8 bg-gradient-to-br from-[#D9E4FF] via-[#E2EAFF] to-[#D5E1FF] border border-white/60 shadow-sm relative overflow-hidden flex flex-col lg:flex-row gap-8 items-center">
 
             {/* Nested Card: Diverse Skill Set */}
-            <div className="w-full lg:w-1/2 rounded-2xl bg-white p-5 shadow-lg border border-white/80 z-10 shrink-0">
+            <div className="w-full lg:w-1/2 rounded-xl bg-white p-5 shadow-lg border border-white/80 z-10 shrink-0">
               <h4 className="text-lg font-bold text-zinc-900 mb-4">Diverse Skill Set</h4>
 
               <div className="space-y-3.5">

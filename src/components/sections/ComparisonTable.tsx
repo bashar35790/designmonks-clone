@@ -19,7 +19,7 @@ const COMPARISON_DATA: ComparisonRow[] = [
   {
     platform: "Design Monks",
     description: "Expert-driven & committed to higher quality. Get effective result & full support without hiring in-house employees",
-    icon: <Smile className="w-5 h-5 text-white" />,
+    icon: <Smile className="w-6 h-6 text-white" />,
     isMonk: true,
     speed: true,
     flexibility: true,
@@ -30,7 +30,7 @@ const COMPARISON_DATA: ComparisonRow[] = [
   {
     platform: "In House Team",
     description: "A full-time designer may ensure brand consistency, but there's a risk of limited expertise even though you pay regularly",
-    icon: <Users className="w-5 h-5 text-blue-300" />,
+    icon: <Users className="w-6 h-6 text-blue-300" />,
     speed: false,
     flexibility: false,
     quality: false,
@@ -40,7 +40,7 @@ const COMPARISON_DATA: ComparisonRow[] = [
   {
     platform: "Creative Agencies",
     description: "Agencies offer structured processes but mostly with high costs, long timelines, and less flexibility for your projects",
-    icon: <Paintbrush className="w-5 h-5 text-blue-300" />,
+    icon: <Paintbrush className="w-6 h-6 text-blue-300" />,
     speed: false,
     flexibility: false,
     quality: true,
@@ -50,7 +50,7 @@ const COMPARISON_DATA: ComparisonRow[] = [
   {
     platform: "Freelancers",
     description: "Freelancers may provide affordable design services but they mostly lack consistency, reliability, and collaboration",
-    icon: <User className="w-5 h-5 text-blue-300" />,
+    icon: <User className="w-6 h-6 text-blue-300" />,
     speed: false,
     flexibility: true,
     quality: false,
@@ -60,7 +60,7 @@ const COMPARISON_DATA: ComparisonRow[] = [
   {
     platform: "Self-Service Tools",
     description: "DIY tools like website builders are budget-friendly, but you can't expect strategic thinking & originality",
-    icon: <Briefcase className="w-5 h-5 text-blue-300" />,
+    icon: <Briefcase className="w-6 h-6 text-blue-300" />,
     speed: false,
     flexibility: false,
     quality: true,
@@ -73,7 +73,7 @@ export function ComparisonTable() {
   return (
     <section id="compare" className="py-24 bg-[#090A0F] text-white relative overflow-hidden font-sans">
       {/* Top Subtle Ambient Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-emerald-500/10 blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[100px] bg-[#12693d] blur-[140px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
@@ -82,11 +82,14 @@ export function ComparisonTable() {
           <div className="inline-flex items-center px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-950/20 text-emerald-400 text-xs font-medium mb-6">
             Why Choose Us
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Design Monks&apos;s Alternative? <br />
+          <h2 className="text-3xl md:text-5xl font-title font-bold text-white tracking-tight leading-tight">
             <span className="font-serif italic font-normal text-white">
-              Think One More Time!
-            </span>
+
+            Design Monks&apos;s
+            </span> Alternative? 
+            <span className="font-serif italic font-normal text-white">
+              Think 
+            </span> One More Time!
           </h2>
         </div>
 
@@ -97,7 +100,7 @@ export function ComparisonTable() {
             {/* Table Header Row */}
             <div className="grid grid-cols-12 items-center px-6 py-4 text-xs font-semibold text-zinc-300 border-b border-zinc-800/60 mb-4">
               <div className="col-span-6 text-left font-bold text-sm text-white">Platform</div>
-              <div className="col-span-6 grid grid-cols-5 text-center text-zinc-400 font-medium">
+              <div className="col-span-6 grid grid-cols-5 text-center text-zinc-400 font-medium text-xl">
                 <span>Speed</span>
                 <span>Flexibility</span>
                 <span>Quality</span>
@@ -111,7 +114,7 @@ export function ComparisonTable() {
               {COMPARISON_DATA.map((row, idx) => (
                 <div
                   key={idx}
-                  className={`grid grid-cols-12 items-center p-6 rounded-2xl transition-all ${row.isMonk
+                  className={`grid grid-cols-12 items-center p-6 rounded-xl transition-all ${row.isMonk
                     ? "bg-gradient-to-r from-[#211142] via-[#1B1238] to-[#2B1147] border border-purple-500/40 shadow-xl shadow-purple-950/40"
                     : "bg-[#0B0D14]/80 border-b border-zinc-800/40 hover:bg-zinc-900/30"
                     }`}
@@ -126,7 +129,7 @@ export function ComparisonTable() {
                     </div>
                     <div>
                       <h3 className="text-base font-bold text-white mb-1">{row.platform}</h3>
-                      <p className="text-xs text-zinc-400 leading-relaxed max-w-md">
+                      <p className="text-sm text-zinc-400 leading-relaxed max-w-md">
                         {row.description}
                       </p>
                     </div>
@@ -137,9 +140,9 @@ export function ComparisonTable() {
                     {[row.speed, row.flexibility, row.quality, row.scalability, row.affordability].map((isCheck, i) => (
                       <div key={i} className="flex items-center justify-center">
                         {isCheck ? (
-                          <Check className="w-5 h-5 text-white stroke-[2.5]" />
+                          <Check className="w-6 h-6 text-white stroke-[2.5]" />
                         ) : (
-                          <X className="w-5 h-5 text-red-500/80 stroke-[2]" />
+                          <X className="w-6 h-6 text-red-500/80 stroke-[2]" />
                         )}
                       </div>
                     ))}
