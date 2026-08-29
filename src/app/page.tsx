@@ -1,34 +1,77 @@
-import { Sparkles, ArrowRight, Star } from "lucide-react";
+import React from "react";
+import { Header } from "@/components/layout/Header";
+import { TrustBar } from "@/components/sections/TrustBar";
+import { Hero } from "@/components/sections/Hero";
+import { DualMarquee } from "@/components/sections/DualMarquee";
+import { CaseStudiesCarousel } from "@/components/sections/CaseStudiesCarousel";
+import { VideoTestimonials } from "@/components/sections/VideoTestimonials";
+import { AIProcess } from "@/components/sections/AIProcess";
+import { ShowreelBlock } from "@/components/sections/ShowreelBlock";
+import { ServicesGrid } from "@/components/sections/ServicesGrid";
+import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
+import { ComparisonTable } from "@/components/sections/ComparisonTable";
+import { CareersTeaser } from "@/components/sections/CareersTeaser";
+import { TestimonialsWall } from "@/components/sections/TestimonialsWall";
+import { FaqSection } from "@/components/sections/FaqSection";
+import { LeadGenForm } from "@/components/sections/LeadGenForm";
+import { Footer } from "@/components/layout/Footer";
+import { CookieBanner } from "@/components/layout/CookieBanner";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-8 text-center bg-monk-dark">
-      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6">
-        <Star className="w-3.5 h-3.5 fill-emerald-400 text-emerald-400" />
-        <span>4.9 ★ Rating on Clutch & Google</span>
-      </div>
+    <div className="min-h-screen bg-[#080808] text-[#F5F5F7] flex flex-col selection:bg-emerald-500 selection:text-black">
+      {/* Top Header */}
+      <Header />
 
-      <h1 className="font-title text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight max-w-4xl text-white mb-6">
-        Leading UI/UX Design Agency <br />
-        <span className="font-brand italic font-normal text-emerald-400">
-          We Design Products That Drive Results
-        </span>
-      </h1>
+      <main className="flex-1 flex flex-col">
+        {/* Section 01: Trust / Announcement Bar */}
+        <TrustBar />
 
-      <p className="font-body text-monk-muted text-base sm:text-lg max-w-xl mb-8">
-        Phase 1 Design System & Typography is fully configured. Ready for component library and section development.
-      </p>
+        {/* Section 02: High-Impact Hero */}
+        <Hero />
 
-      <div className="flex flex-wrap items-center justify-center gap-4">
-        <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-all hover:gap-3">
-          <span>Book a 15-Min Intro Call</span>
-          <ArrowRight className="w-4 h-4" />
-        </button>
-        <button className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-panel text-white font-medium text-sm hover:bg-zinc-800/60 transition-all">
-          <Sparkles className="w-4 h-4 text-emerald-400" />
-          <span>Explore Capabilities</span>
-        </button>
-      </div>
-    </main>
+        {/* Section 03: Dual Infinite Marquee */}
+        <DualMarquee />
+
+        {/* Section 04: Case Studies & Work Carousel */}
+        <CaseStudiesCarousel />
+
+        {/* Section 05: Video Testimonials */}
+        <VideoTestimonials />
+
+        {/* Section 06: AI-Powered 4-Step Process */}
+        <AIProcess />
+
+        {/* Section 07: Full-Width Agency Showreel */}
+        <ShowreelBlock />
+
+        {/* Section 08: Services Bento Grid */}
+        <ServicesGrid />
+
+        {/* Section 09: Why Choose Us Benefits */}
+        <WhyChooseUs />
+
+        {/* Section 10: Comparison Matrix */}
+        <ComparisonTable />
+
+        {/* Section 11: Careers Teaser */}
+        <CareersTeaser />
+
+        {/* Section 12: Testimonials Masonry Wall */}
+        <TestimonialsWall />
+
+        {/* Section 13: FAQ Accordion */}
+        <FaqSection />
+
+        {/* Section 14: Lead Generation & Consultation Form */}
+        <LeadGenForm />
+      </main>
+
+      {/* Global Footer */}
+      <Footer />
+
+      {/* Granular Cookie Consent Banner */}
+      <CookieBanner />
+    </div>
   );
 }

@@ -1,0 +1,60 @@
+import { ComparisonRow } from "@/types";
+
+export const COMPARISON_DATA: ComparisonRow[] = [
+  {
+    feature: "Average Turnaround Time",
+    designMonks: "48 - 72 Hours per module",
+    inHouse: "3 - 6 Weeks per sprint",
+    agencies: "2 - 4 Months overall",
+    freelancers: "Unpredictable / Slow",
+    diy: "Days (low fidelity)",
+  },
+  {
+    feature: "Seniority of Talent",
+    designMonks: "Top 1% Senior Product Designers",
+    inHouse: "Varies by hiring budget",
+    agencies: "Delegated to juniors",
+    freelancers: "Inconsistent skillsets",
+    diy: "No human expertise",
+  },
+  {
+    feature: "Unlimited Revisions",
+    designMonks: true,
+    inHouse: true,
+    agencies: false,
+    freelancers: false,
+    diy: true,
+  },
+  {
+    feature: "Fixed, Transparent Pricing",
+    designMonks: "Zero hidden fees / Predictable",
+    inHouse: "High salary + benefits overhead",
+    agencies: "Expensive hourly billable creep",
+    freelancers: "Hourly estimates often overrun",
+    diy: "Cheap subscription",
+  },
+  {
+    feature: "AI-Supercharged Workflows",
+    designMonks: "Full AI stack integration",
+    inHouse: "Ad-hoc adoption",
+    agencies: "Slow legacy workflows",
+    freelancers: "Rare / Individual",
+    diy: "Basic templates only",
+  },
+  {
+    feature: "Code-Ready Deliverables (Next.js/Framer)",
+    designMonks: true,
+    inHouse: false,
+    agencies: "Extra $$$ cost",
+    freelancers: "Design-only usually",
+    diy: "Proprietary lock-in",
+  },
+  {
+    feature: "No Management Overhead",
+    designMonks: "Dedicated design lead handles all",
+    inHouse: "Heavy 1:1s & HR overhead",
+    agencies: "Too many layers of account managers",
+    freelancers: "Requires constant micromanagement",
+    diy: "You do 100% of the work",
+  },
+];
