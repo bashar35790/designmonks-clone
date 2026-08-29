@@ -100,7 +100,7 @@ export function DualMarquee() {
         </h3>
       </div>
 
-      <div className="space-y-4 sm:space-y-6">
+      <div className="space-y-4 sm:space-y-6 max-w-7xl mx-auto px-4">
         <Marquee direction="left" duration="80s" pauseOnHover={false} repeat={2}>
           {ROW_1_LOGOS.map(renderLogo)}
         </Marquee>

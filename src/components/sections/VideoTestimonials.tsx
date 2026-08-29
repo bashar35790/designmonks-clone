@@ -187,7 +187,7 @@ export function VideoTestimonials() {
         onMouseLeave={handleMouseLeave}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
-        className="flex items-center gap-6 overflow-x-auto px-4 sm:px-8 lg:px-12 pb-8 no-scrollbar cursor-grab active:cursor-grabbing select-none scroll-smooth"
+        className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex items-center gap-6 overflow-x-auto pb-8 no-scrollbar cursor-grab active:cursor-grabbing select-none scroll-smooth"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",

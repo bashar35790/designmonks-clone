@@ -3,6 +3,7 @@
 import React, { useRef, useState } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 interface ServiceData {
   id: string;
@@ -86,7 +87,7 @@ export function ServicesGrid() {
   return (
     <section
       ref={containerRef}
-      className="relative bg-[#080808] text-white py-16 px-4 sm:px-8 md:px-16"
+      className="relative bg-[#080808] text-white py-16 px-4 sm:px-8 md:px-16 rounded-2xl"
     >
       <div className="max-w-7xl mx-auto">
 
@@ -147,20 +148,24 @@ export function ServicesGrid() {
                 className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center"
               >
                 {/* Image 1 */}
-                <div className="rounded-3xl overflow-hidden bg-zinc-900 border border-white/10 shadow-2xl h-[380px] sm:h-[460px] relative group">
-                  <img
+                <div className="rounded-[10px] overflow-hidden bg-zinc-900 border border-white/10 shadow-2xl h-[380px] sm:h-[460px] relative group">
+                  <Image
                     src={service.images[0]}
                     alt={`${service.title} preview 1`}
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transform group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
 
                 {/* Image 2 (Staggered) */}
-                <div className="rounded-3xl overflow-hidden bg-zinc-900 border border-white/10 shadow-2xl h-[340px] sm:h-[420px] relative sm:mt-16 group">
-                  <img
+                <div className="rounded-[10px] overflow-hidden bg-zinc-900 border border-white/10 shadow-2xl h-[340px] sm:h-[420px] relative sm:mt-16 group">
+                  <Image
                     src={service.images[1]}
                     alt={`${service.title} preview 2`}
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transform group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
               </div>
