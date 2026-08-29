@@ -1,6 +1,5 @@
 import React from "react";
 import { Header } from "@/components/layout/Header";
-import { TrustBar } from "@/components/sections/TrustBar";
 import { Hero } from "@/components/sections/Hero";
 import { DualMarquee } from "@/components/sections/DualMarquee";
 import { CaseStudiesCarousel } from "@/components/sections/CaseStudiesCarousel";
@@ -19,58 +18,55 @@ import { CookieBanner } from "@/components/layout/CookieBanner";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#080808] text-[#F5F5F7] flex flex-col selection:bg-emerald-500 selection:text-black">
-      {/* Top Header */}
+    <div className="min-h-screen bg-[#080808] text-[#F5F5F7] flex flex-col selection:bg-purple-500 selection:text-white pb-16">
+      {/* Top Header & Bottom Floating Dock Navbar */}
       <Header />
 
       <main className="flex-1 flex flex-col">
-        {/* Section 01: Trust / Announcement Bar */}
-        <TrustBar />
-
-        {/* Section 02: High-Impact Hero */}
+        {/* 1. Hero Section (Purple Nebula + Project Collage) */}
         <Hero />
 
-        {/* Section 03: Dual Infinite Marquee */}
+        {/* 2. Client Logos Marquee (Clean White) */}
         <DualMarquee />
 
-        {/* Section 04: Case Studies & Work Carousel */}
+        {/* 3. Case Studies (Pastel-Tinted Cards: Lilac, Sky Blue, Lime, Yellow, Salmon, Powder Blue) */}
         <CaseStudiesCarousel />
 
-        {/* Section 05: Video Testimonials */}
+        {/* 4. Video Testimonials (Portrait Cards on Light Background) */}
         <VideoTestimonials />
 
-        {/* Section 06: AI-Powered 4-Step Process */}
+        {/* 5. AI-Powered 4-Step Process (Dark Obsidian with Purple Accents) */}
         <AIProcess />
 
-        {/* Section 07: Full-Width Agency Showreel */}
+        {/* 6. Agency Showreel Banner (Clean Light Background) */}
         <ShowreelBlock />
 
-        {/* Section 08: Services Bento Grid */}
+        {/* 7. Services (Sticky Sidebar + 2-Col Masonry Screen Collage) */}
         <ServicesGrid />
 
-        {/* Section 09: Why Choose Us Benefits */}
+        {/* 8. Why Choose Us / Benefits (Light Bento + Lavender Resource Marquee) */}
         <WhyChooseUs />
 
-        {/* Section 10: Comparison Matrix */}
+        {/* 9. Comparison Matrix (Dark Cyber Grid with Purple Design Monks Column) */}
         <ComparisonTable />
 
-        {/* Section 11: Careers Teaser */}
+        {/* 10. Careers Teaser (Clean Light Background) */}
         <CareersTeaser />
 
-        {/* Section 12: Testimonials Masonry Wall */}
+        {/* 11. Testimonials Wall (Multi-Row Review Cards on White) */}
         <TestimonialsWall />
 
-        {/* Section 13: FAQ Accordion */}
+        {/* 12. FAQ Accordion (Clean White Background) */}
         <FaqSection />
 
-        {/* Section 14: Lead Generation & Consultation Form */}
+        {/* 13. Consultation Lead Gen (Dark Luxury Box with COO Profile & WhatsApp) */}
         <LeadGenForm />
       </main>
 
-      {/* Global Footer */}
+      {/* Global Mega Footer with 3D Globe Horizon & Massive Wordmark */}
       <Footer />
 
-      {/* Granular Cookie Consent Banner */}
+      {/* Cookie Consent Banner */}
       <CookieBanner />
     </div>
   );

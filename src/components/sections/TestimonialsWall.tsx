@@ -2,8 +2,7 @@
 
 import React from "react";
 import { TEXT_TESTIMONIALS } from "@/data/testimonials";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { Star, CheckCircle, Quote } from "lucide-react";
+import { Star, CheckCircle } from "lucide-react";
 import { Marquee } from "@/components/ui/Marquee";
 
 export function TestimonialsWall() {
@@ -13,7 +12,7 @@ export function TestimonialsWall() {
   const renderCard = (t: (typeof TEXT_TESTIMONIALS)[0]) => (
     <div
       key={t.id}
-      className="w-80 sm:w-96 p-6 rounded-3xl bg-zinc-950 border border-white/[0.08] hover:border-emerald-500/30 transition-all duration-300 shadow-xl flex flex-col justify-between"
+      className="w-80 sm:w-96 p-6 rounded-3xl bg-white border border-zinc-200/80 hover:border-purple-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between shadow-sm text-zinc-900"
     >
       <div>
         {/* Rating Stars */}
@@ -24,25 +23,25 @@ export function TestimonialsWall() {
         </div>
 
         {/* Content */}
-        <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed italic mb-6 font-body">
+        <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed italic mb-6 font-body">
           &ldquo;{t.content}&rdquo;
         </p>
       </div>
 
       {/* Author */}
-      <div className="flex items-center gap-3 pt-4 border-t border-white/[0.06]">
+      <div className="flex items-center gap-3 pt-4 border-t border-zinc-100">
         <img
           src={t.avatar}
           alt={t.name}
-          className="w-10 h-10 rounded-full object-cover border border-white/10"
+          className="w-10 h-10 rounded-full object-cover border border-zinc-200"
         />
         <div>
           <div className="flex items-center gap-1.5">
-            <span className="font-title text-sm font-bold text-white">{t.name}</span>
-            {t.verified && <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />}
+            <span className="font-title text-sm font-bold text-zinc-900">{t.name}</span>
+            {t.verified && <CheckCircle className="w-3.5 h-3.5 text-purple-600" />}
           </div>
           <span className="text-[11px] text-zinc-500 block font-body">
-            {t.role} • <span className="text-emerald-400">@{t.company}</span>
+            {t.role} • <span className="text-purple-700 font-semibold">@{t.company}</span>
           </span>
         </div>
       </div>
@@ -50,17 +49,23 @@ export function TestimonialsWall() {
   );
 
   return (
-    <section id="testimonials" className="py-24 relative overflow-hidden">
+    <section id="testimonials" className="py-24 bg-white text-zinc-900 relative overflow-hidden border-b border-zinc-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
-        <SectionHeader
-          eyebrow="Social Proof Wall"
-          title="Trusted by People,"
-          italicAccent="Chosen by Brands"
-          subtitle="Real reviews from the founders, design directors, and tech executives we partner with."
-        />
+        <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-700 block mb-2">
+          SOCIAL PROOF WALL
+        </span>
+        <h2 className="font-title text-3xl sm:text-5xl font-black text-zinc-900 tracking-tight leading-tight mb-4">
+          Trusted by People,{" "}
+          <span className="font-brand italic font-normal text-purple-700">
+            Chosen by Brands
+          </span>
+        </h2>
+        <p className="font-body text-zinc-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          Over 30+ verified reviews from founders, VPs of product, and engineering directors.
+        </p>
       </div>
 
-      {/* 2-Row Continuous Moving Testimonial Marquees */}
+      {/* 2 Moving Rows of White Review Cards */}
       <div className="space-y-6">
         <Marquee direction="left" speed="normal" pauseOnHover={true}>
           {row1.map(renderCard)}
