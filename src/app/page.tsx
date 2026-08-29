@@ -15,6 +15,7 @@ import { FaqSection } from "@/components/sections/FaqSection";
 import { LeadGenForm } from "@/components/sections/LeadGenForm";
 import { Footer } from "@/components/layout/Footer";
 import { CookieBanner } from "@/components/layout/CookieBanner";
+import ResourceMarquee from "@/components/sections/ResourceMarquee";
 
 export default function Home() {
   return (
@@ -46,6 +47,8 @@ export default function Home() {
 
         {/* 8. Why Choose Us / Benefits (Light Bento + Lavender Resource Marquee) */}
         <WhyChooseUs />
+
+        <ResourceMarquee></ResourceMarquee>
 
         {/* 9. Comparison Matrix (Dark Cyber Grid with Purple Design Monks Column) */}
         <ComparisonTable />
