@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowDown, ArrowUp, ArrowRight, MessageSquare } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 // --- Location Data ---
 const locations = [
@@ -78,18 +78,18 @@ export function Footer() {
     <footer className="w-full bg-[#080808] text-white overflow-hidden relative font-body">
       {/* SECTION 1: Locations with Video Background */}
       <section className="relative min-h-[550px] lg:min-h-[650px] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute top-0 inset-0 z-0 overflow-hidden">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-fit object-cover opacity-80"
+            className="w-full h-full object-cover opacity-80"
             poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop"
           >
             <source src="/videos/footer_globe.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-[#080808]/70" />
+          <div className="absolute top-0 inset-0 bg-gradient-to-t from-[#080808] via-transparent to-[#080808]/70" />
         </div>
 
         <div className="relative z-10 max-w-6xl w-full mx-auto">
@@ -183,7 +183,7 @@ export function Footer() {
           </div>
 
           {/* Legal / Copyright Bar */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-400 border-t border-white/5 pt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400 border-t border-white/5 pt-8">
             <Link href="/terms" className="hover:text-white transition-colors">
               Terms &amp; Conditions
             </Link>
@@ -197,25 +197,16 @@ export function Footer() {
         </div>
       </section>
 
-      {/* SECTION 4: Combined Image Watermark + Floating Navigation Bar */}
+      {/* SECTION 4: Footer Logo Watermark Banner */}
       <section className="relative w-full overflow-hidden select-none">
         <div className="relative w-full h-[220px] sm:h-[280px] lg:h-[350px]">
-          {/* Base Layer: Logo Watermark */}
+          {/* Final Footer Logo */}
           <Image
             src="/images/footer/footerlogo.avif"
-            alt="designmonks background text"
+            alt="Design Monks footer logo"
             fill
             priority
-            className="object-cover object-center z-0"
-          />
-
-          {/* Top Layer: Emerald Overlay & Lighting Grid */}
-          <Image
-            src="/images/footer/footerwithlogo.avif"
-            alt="designmonks green glow overlay"
-            fill
-            priority
-            className="object-cover object-center z-10 mix-blend-screen opacity-90"
+            className="object-cover object-center"
           />
         </div>
       </section>
