@@ -160,15 +160,16 @@ export function Hero() {
           {HERO_MARQUEE_ROW_1.map((src, idx) => (
             <div
               key={idx}
-              className="relative w-[280px] sm:w-[360px] md:w-[420px] aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-950 border border-white/10 shadow-2xl flex-shrink-0"
+              className="relative w-[280px] sm:w-[360px] md:w-[420px] aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-950 border border-white/10 shadow-2xl flex-shrink-0 transition-transform duration-300 group cursor-pointer"
             >
               <Image
                 src={src}
                 alt={`Showcase Project ${idx + 1}`}
                 fill
                 sizes="(max-width: 768px) 280px, 420px"
-                className="object-cover"
+                className="object-cover transition-transform duration-500"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity" />
             </div>
           ))}
         </Marquee>
@@ -178,15 +179,16 @@ export function Hero() {
           {HERO_MARQUEE_ROW_2.map((src, idx) => (
             <div
               key={idx}
-              className="relative w-[280px] sm:w-[360px] md:w-[420px] aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-950 border border-white/10 shadow-2xl flex-shrink-0"
+              className="relative w-[280px] sm:w-[360px] md:w-[420px] aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden bg-zinc-950 border border-white/10 shadow-2xl flex-shrink-0  transition-transform duration-300 group cursor-pointer"
             >
               <Image
                 src={src}
                 alt={`Showcase Project ${idx + 13}`}
                 fill
                 sizes="(max-width: 768px) 280px, 420px"
-                className="object-cover"
+                className="object-cover transition-transform duration-500"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity" />
             </div>
           ))}
         </Marquee>
