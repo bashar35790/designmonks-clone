@@ -7,6 +7,7 @@ interface MarqueeProps {
   children: React.ReactNode;
   direction?: "left" | "right";
   speed?: "slow" | "normal" | "fast";
+  duration?: string;
   pauseOnHover?: boolean;
   className?: string;
   repeat?: number;
@@ -15,38 +16,40 @@ interface MarqueeProps {
 export function Marquee({
   children,
   direction = "left",
-  speed = "normal",
-  pauseOnHover = true,
+  speed = "slow",
+  duration,
+  pauseOnHover = false,
   className,
-  repeat = 4,
+  repeat = 2,
 }: MarqueeProps) {
   const speedDurations = {
-    slow: "60s",
-    normal: "35s",
-    fast: "20s",
+    slow: "75s",
+    normal: "45s",
+    fast: "25s",
   };
 
   const animationStyle: React.CSSProperties = {
-    animationDuration: speedDurations[speed],
+    animationDuration: duration || speedDurations[speed],
     animationDirection: direction === "right" ? "reverse" : "normal",
+    willChange: "transform",
   };
 
   return (
     <div
       className={cn(
-        "group flex overflow-hidden select-none [mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)]",
+        "group flex overflow-hidden select-none [mask-image:linear-gradient(to_right,transparent_0%,black_8%,black_92%,transparent_100%)]",
         className
       )}
     >
       <div
         style={animationStyle}
         className={cn(
-          "flex shrink-0 items-center justify-around gap-6 animate-marquee-left",
+          "flex shrink-0 items-center justify-around gap-4 sm:gap-6 animate-marquee-left [transform:translateZ(0)]",
           pauseOnHover && "group-hover:[animation-play-state:paused]"
         )}
       >
         {Array.from({ length: repeat }).map((_, i) => (
-          <div key={i} className="flex shrink-0 items-center gap-6">
+          <div key={i} className="flex shrink-0 items-center gap-4 sm:gap-6">
             {children}
           </div>
         ))}
@@ -55,12 +58,12 @@ export function Marquee({
         style={animationStyle}
         aria-hidden="true"
         className={cn(
-          "flex shrink-0 items-center justify-around gap-6 animate-marquee-left",
+          "flex shrink-0 items-center justify-around gap-4 sm:gap-6 animate-marquee-left [transform:translateZ(0)]",
           pauseOnHover && "group-hover:[animation-play-state:paused]"
         )}
       >
         {Array.from({ length: repeat }).map((_, i) => (
-          <div key={`dup-${i}`} className="flex shrink-0 items-center gap-6">
+          <div key={`dup-${i}`} className="flex shrink-0 items-center gap-4 sm:gap-6">
             {children}
           </div>
         ))}
