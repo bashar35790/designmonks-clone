@@ -41,17 +41,23 @@ export function Header() {
             />
           </div>
 
-          {/* Center Prominent CTA: Start a Project -> Matching Screenshot */}
-          <a
-            href="#contact"
-            className="relative group flex items-center gap-2.5 px-6 sm:px-8 py-2.5 sm:py-3 rounded-2xl bg-gradient-to-r from-[#5B1FE6] via-[#6D28D9] to-[#8032F0] hover:from-[#501ACF] hover:to-[#7329E0] text-white font-title font-extrabold text-sm sm:text-base border border-white/40 shadow-[inset_0_1px_2px_rgba(255,255,255,0.7),0_8px_24px_rgba(109,40,217,0.5)] transition-all duration-300 active:scale-[0.98] whitespace-nowrap overflow-hidden select-none"
-          >
-            {/* Top-Right Specular Flare Light Glint */}
-            <div className="absolute top-0 right-0 w-10 h-10 bg-gradient-to-bl from-white via-white/30 to-transparent rounded-tr-[inherit] pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity" />
+          {/* Center Prominent CTA: Start a Project -> with Moving White Border Animation */}
+          <div className="relative group inline-flex rounded-2xl p-[1.5px] overflow-hidden shadow-[0_4px_25px_rgba(109,40,217,0.5)] hover:shadow-[0_4px_35px_rgba(109,40,217,0.7)] transition-shadow">
+            {/* Animated Spinning Conic Light Beam for White Border */}
+            <div className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#ffffff_340deg,transparent_360deg)] animate-[spin_3s_linear_infinite]" />
 
-            <span className="relative z-10 tracking-tight">Start a Project</span>
-            <ArrowRight className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
-          </a>
+            {/* Inner Button Content */}
+            <a
+              href="#contact"
+              className="relative z-10 flex items-center gap-2.5 px-6 sm:px-8 py-2.5 sm:py-3 rounded-[inherit] bg-gradient-to-r from-[#5B1FE6] via-[#6D28D9] to-[#8032F0] hover:from-[#501ACF] hover:to-[#7329E0] text-white font-title font-extrabold text-sm sm:text-base transition-all duration-300 active:scale-[0.98] whitespace-nowrap overflow-hidden select-none"
+            >
+              {/* Top-Right Specular Flare Light Glint */}
+              <div className="absolute top-0 right-0 w-10 h-10 bg-gradient-to-bl from-white via-white/30 to-transparent rounded-tr-[inherit] pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity" />
+
+              <span className="relative z-10 tracking-tight">Start a Project</span>
+              <ArrowRight className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+          </div>
 
           {/* Career Link */}
           <a
