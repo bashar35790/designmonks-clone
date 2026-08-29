@@ -80,46 +80,46 @@ export function DualMarquee() {
   const renderLogo = (item: { src: string; name: string }, idx: number) => (
     <div
       key={idx}
-      className="flex items-center justify-center h-12 sm:h-14 px-4 sm:px-6 flex-shrink-0 opacity-70 hover:opacity-100 transition-opacity duration-300"
+      className="flex items-center justify-center h-16 sm:h-20 px-6 sm:px-10 flex-shrink-0 opacity-75 hover:opacity-100 transition-opacity duration-300"
     >
-      <div className="relative h-6 sm:h-8 w-28 sm:w-36 flex items-center justify-center">
+      <div className="relative h-8 sm:h-10 md:h-12 w-36 sm:w-48 md:w-56 flex items-center justify-center">
         <Image
           src={item.src}
           alt={item.name}
           fill
-          className="object-contain filter grayscale brightness-50 contrast-125"
+          className="object-contain"
         />
       </div>
     </div>
   );
 
   return (
-    <section className="relative -mt-8 sm:-mt-12 pt-16 pb-20 bg-white text-zinc-900 rounded-t-[36px] sm:rounded-t-[60px] md:rounded-t-[80px] shadow-[0_-20px_50px_rgba(0,0,0,0.1)] border-t border-zinc-200/60 z-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 text-center mb-12">
-        <h3 className="font-title text-xl sm:text-2xl md:text-3xl font-bold text-zinc-900 tracking-tight">
+    <section className="relative -mt-10 sm:-mt-16 pt-20 pb-24 bg-white text-zinc-900 rounded-t-[40px] sm:rounded-t-[70px] md:rounded-t-[90px] shadow-[0_-25px_60px_rgba(0,0,0,0.12)] border-t border-zinc-200/80 z-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 text-center mb-14">
+        <h3 className="font-title text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight">
           Trusted by 200+ of the world&apos;s top brands
         </h3>
       </div>
 
-      {/* 4 Continuous Marquee Rows with 60 Total Logos */}
-      <div className="space-y-4 sm:space-y-6">
+      {/* 4 Continuous Marquee Rows with Larger Logo Sizing & Prominent Motion */}
+      <div className="space-y-6 sm:space-y-8">
         {/* Row 1: Left */}
-        <Marquee direction="left" duration="40s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="left" duration="30s" pauseOnHover={false} repeat={2}>
           {ROW_1_LOGOS.map(renderLogo)}
         </Marquee>
 
         {/* Row 2: Right */}
-        <Marquee direction="right" duration="40s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="right" duration="30s" pauseOnHover={false} repeat={2}>
           {ROW_2_LOGOS.map(renderLogo)}
         </Marquee>
 
         {/* Row 3: Left */}
-        <Marquee direction="left" duration="40s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="left" duration="30s" pauseOnHover={false} repeat={2}>
           {ROW_3_LOGOS.map(renderLogo)}
         </Marquee>
 
         {/* Row 4: Right */}
-        <Marquee direction="right" duration="40s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="right" duration="30s" pauseOnHover={false} repeat={2}>
           {ROW_4_LOGOS.map(renderLogo)}
         </Marquee>
       </div>
