@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+import Image from "next/image";
 import { Play, ArrowLeft, ArrowRight } from "lucide-react";
 import { VideoModal } from "@/components/ui/VideoModal";
 
@@ -201,10 +202,12 @@ export function VideoTestimonials() {
           >
             {/* Founder Portrait Background Image */}
             <div className="absolute inset-0 z-0">
-              <img
+              <Image
                 src={story.image}
                 alt={story.founder}
-                className="w-full h-full object-cover object-top"
+                fill
+                sizes="(max-width: 768px) 70vw, 33vw"
+                className="object-cover object-top rounded-[10px]"
                 draggable={false}
               />
               {/* Bottom Dark Gradient Shadow for High Contrast Readability */}

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 interface StickyCaseStudy {
@@ -130,10 +131,12 @@ export function CaseStudiesCarousel() {
 
                 {/* Right Column: Device Screen / Showcase Image */}
                 <div className="lg:col-span-6 rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/11] bg-black/10 border border-black/10 shadow-2xl relative">
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover rounded-[10px]"
                   />
                 </div>
               </div>

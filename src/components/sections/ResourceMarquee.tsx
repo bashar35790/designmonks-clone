@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Marquee } from "@/components/ui/Marquee";
 
@@ -79,10 +80,12 @@ export function ResourceMarquee() {
                                     : "w-[320px] sm:w-[480px] h-[320px] sm:h-[370px]"
                             )}
                         >
-                            <img
+                            <Image
                                 src={item.image}
                                 alt={item.alt}
-                                className="w-full h-full object-cover rounded-[1.8rem]"
+                                fill
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                                className="object-cover rounded-[10px]"
                             />
                         </div>
                     ))}
