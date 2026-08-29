@@ -11,16 +11,13 @@ export function Header() {
 
   return (
     <>
-      {/* Floating Viewport Bottom Dock Navbar ONLY */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none w-auto max-w-[95vw]">
-        {/* Ambient Purple / Green Underglow */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/40 via-violet-500/50 to-emerald-500/30 rounded-full blur-xl opacity-80 pointer-events-none" />
-
-        <nav className="pointer-events-auto relative flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 rounded-full bg-[#0B0B0E]/95 border border-emerald-500/30 shadow-[0_10px_35px_rgba(0,0,0,0.8),0_-2px_15px_rgba(16,185,129,0.2)] backdrop-blur-2xl">
+      {/* Floating Viewport Bottom Dock Navbar Matching Exact Attachment */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none w-auto max-w-[96vw]">
+        <nav className="pointer-events-auto relative flex items-center gap-1.5 sm:gap-3 px-3 sm:px-5 py-2 sm:py-2.5 rounded-[22px] bg-[#070709] border-t-2 border-emerald-500/80 border-x border-b border-white/[0.08] shadow-[0_20px_60px_rgba(0,0,0,0.9),0_-3px_15px_rgba(16,185,129,0.35)] backdrop-blur-3xl">
           {/* Projects Link */}
           <a
             href="#projects"
-            className="px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-title font-semibold text-white/90 hover:text-white hover:bg-white/[0.06] transition-all whitespace-nowrap"
+            className="px-3.5 sm:px-5 py-2 rounded-xl text-sm sm:text-base font-title font-bold text-white hover:text-purple-300 transition-colors whitespace-nowrap"
           >
             Projects
           </a>
@@ -32,7 +29,7 @@ export function Header() {
           >
             <button
               onClick={() => setIsMegaMenuOpen(!isMegaMenuOpen)}
-              className="px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-title font-semibold text-white/90 hover:text-white hover:bg-white/[0.06] transition-all whitespace-nowrap cursor-pointer"
+              className="px-3.5 sm:px-5 py-2 rounded-xl text-sm sm:text-base font-title font-bold text-white hover:text-purple-300 transition-colors whitespace-nowrap cursor-pointer"
               aria-expanded={isMegaMenuOpen}
             >
               Services
@@ -44,22 +41,22 @@ export function Header() {
             />
           </div>
 
-          {/* Center Prominent CTA: Start a Project -> with Specular Highlight */}
+          {/* Center Prominent CTA: Start a Project -> Matching Screenshot */}
           <a
             href="#contact"
-            className="relative group flex items-center gap-2 px-4 sm:px-6 py-2 rounded-full bg-black/80 hover:bg-black text-white font-title font-bold text-xs sm:text-sm border border-white/30 hover:border-white/60 shadow-lg shadow-black/60 transition-all duration-300 active:scale-95 whitespace-nowrap overflow-hidden"
+            className="relative group flex items-center gap-2.5 px-6 sm:px-8 py-2.5 sm:py-3 rounded-2xl bg-gradient-to-r from-[#5B1FE6] via-[#6D28D9] to-[#8032F0] hover:from-[#501ACF] hover:to-[#7329E0] text-white font-title font-extrabold text-sm sm:text-base border border-white/40 shadow-[inset_0_1px_2px_rgba(255,255,255,0.7),0_8px_24px_rgba(109,40,217,0.5)] transition-all duration-300 active:scale-[0.98] whitespace-nowrap overflow-hidden select-none"
           >
-            {/* Top-Right Specular Light Ray */}
-            <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-br from-white via-white/40 to-transparent rounded-full blur-[2px] opacity-70 group-hover:opacity-100 transition-opacity pointer-events-none" />
+            {/* Top-Right Specular Flare Light Glint */}
+            <div className="absolute top-0 right-0 w-10 h-10 bg-gradient-to-bl from-white via-white/30 to-transparent rounded-tr-[inherit] pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity" />
 
             <span className="relative z-10 tracking-tight">Start a Project</span>
-            <ArrowRight className="w-3.5 h-3.5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
+            <ArrowRight className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
 
           {/* Career Link */}
           <a
             href="#careers"
-            className="px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-title font-semibold text-white/90 hover:text-white hover:bg-white/[0.06] transition-all whitespace-nowrap"
+            className="px-3.5 sm:px-5 py-2 rounded-xl text-sm sm:text-base font-title font-bold text-white hover:text-purple-300 transition-colors whitespace-nowrap"
           >
             Career
           </a>
@@ -72,10 +69,10 @@ export function Header() {
           >
             <button
               onClick={() => setIsMoreMenuOpen(!isMoreMenuOpen)}
-              className="px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-title font-semibold text-white/90 hover:text-white hover:bg-white/[0.06] transition-all whitespace-nowrap flex items-center gap-1 cursor-pointer"
+              className="px-3.5 sm:px-5 py-2 rounded-xl text-sm sm:text-base font-title font-bold text-white hover:text-purple-300 transition-colors whitespace-nowrap flex items-center gap-1 cursor-pointer"
             >
               <span>More</span>
-              <ChevronUp className="w-3 h-3 text-zinc-400" />
+              <ChevronUp className="w-3.5 h-3.5 text-zinc-400" />
             </button>
 
             {isMoreMenuOpen && (
