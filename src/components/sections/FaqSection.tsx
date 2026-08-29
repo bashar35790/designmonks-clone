@@ -13,21 +13,25 @@ export function FaqSection() {
   };
 
   return (
-    <section id="faq" className="py-24 bg-white text-zinc-900 relative overflow-hidden border-b border-zinc-200">
+    <section
+      id="faq"
+      className="py-24 bg-white text-zinc-900 relative overflow-hidden border-b border-zinc-200"
+    >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-700 block mb-2">
-            FREQUENTLY ASKED QUESTIONS
-          </span>
-          <h2 className="font-title text-3xl sm:text-5xl font-black text-zinc-900 tracking-tight leading-tight mb-4">
-            Your Questions{" "}
-            <span className="font-brand italic font-normal text-purple-700">
+          <div className="inline-flex items-center px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-50/50 text-emerald-600 text-xs font-medium mb-6">
+            Frequently Asked Questions
+          </div>
+          <h2 className="font-title text-3xl sm:text-5xl font-bold text-zinc-900 tracking-tight leading-tight mb-4">
+            Your Questions{" "} <br />
+            <span className="font-brand italic font-normal">
               Answered!
             </span>
           </h2>
           <p className="font-body text-zinc-600 text-sm sm:text-base leading-relaxed">
-            Everything you need to know about working with Design Monks, sprints, and delivery.
+            Everything you need to know about working with Design Monks,
+            sprints, and delivery.
           </p>
         </div>
 
@@ -54,10 +58,16 @@ export function FaqSection() {
                   </span>
                   <span
                     className={`p-2 rounded-full flex shrink-0 items-center justify-center transition-colors ${
-                      isOpen ? "bg-purple-700 text-white" : "bg-zinc-200 text-zinc-700"
+                      isOpen
+                        ? "bg-purple-700 text-white"
+                        : "bg-zinc-200 text-zinc-700"
                     }`}
                   >
-                    {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                    {isOpen ? (
+                      <Minus className="w-4 h-4" />
+                    ) : (
+                      <Plus className="w-4 h-4" />
+                    )}
                   </span>
                 </button>
 
@@ -78,25 +88,6 @@ export function FaqSection() {
               </div>
             );
           })}
-        </div>
-
-        {/* Bottom Quick Contact */}
-        <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-left">
-            <span className="text-sm font-bold text-zinc-900 block">
-              Have another question?
-            </span>
-            <span className="text-xs text-zinc-500">
-              Speak directly with our leadership team.
-            </span>
-          </div>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-purple-700 hover:bg-purple-800 text-white font-title font-bold text-xs shadow-md transition-all"
-          >
-            <span>Ask a Question</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </a>
         </div>
       </div>
     </section>
