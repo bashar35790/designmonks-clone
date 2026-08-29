@@ -2,11 +2,11 @@
 
 import React from "react";
 import Image from "next/image";
-import { Star, MessageCircle, Smile } from "lucide-react";
+import { Star, ArrowRight, Smile } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] sm:min-h-screen flex flex-col items-center justify-center pt-12 pb-32 px-4 sm:px-6 lg:px-8 text-center overflow-hidden bg-[#12072B]">
+    <section className="relative min-h-[95vh] sm:min-h-screen flex flex-col items-center justify-center pt-8 pb-32 px-4 sm:px-6 lg:px-8 text-center overflow-hidden bg-[#12072B]">
       {/* Background SVG Gradient & Dot Matrix (from public/images) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <Image
@@ -14,20 +14,20 @@ export function Hero() {
           alt="Hero Background Gradient"
           fill
           priority
-          className="object-cover object-center opacity-85"
+          className="object-cover object-center opacity-90"
         />
         <Image
           src="/images/herodot.svg"
           alt="Hero Dots Matrix"
           fill
           priority
-          className="object-cover object-center opacity-60 mix-blend-screen"
+          className="object-cover object-center opacity-70 mix-blend-screen"
         />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto flex flex-col items-center">
         {/* Top Logo: designmonks */}
-        <div className="mb-6 select-none">
+        <div className="mb-5 select-none">
           <span className="font-title font-extrabold text-2xl sm:text-3xl tracking-tight text-white">
             designmonks
           </span>
@@ -63,7 +63,7 @@ export function Hero() {
         </div>
 
         {/* Main Display Headline Matching Screenshot */}
-        <h1 className="font-title text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold text-white tracking-tight leading-[1.12] mb-10 max-w-5xl">
+        <h1 className="font-title text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold text-white tracking-tight leading-[1.12] mb-8 max-w-5xl">
           We <span className="font-brand italic font-normal text-white">Design</span> Products That <br />
           Drive{" "}
           <span className="inline-flex items-center align-middle mx-1 sm:mx-3 -translate-y-1">
@@ -93,27 +93,36 @@ export function Hero() {
           <span className="font-brand italic font-normal text-white">Results</span>
         </h1>
 
-        {/* Global Countries Flag Pill */}
-        <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-black/60 border border-white/[0.12] backdrop-blur-md text-xs text-zinc-300 shadow-xl mb-4">
-          <span className="flex items-center gap-1 text-sm">
-            <span>🇺🇸</span>
-            <span>🇦🇪</span>
-            <span>🇦🇺</span>
-            <span>🇮🇹</span>
-          </span>
-          <span className="font-title font-medium text-white/90">
-            Designing across 8+ countries
-          </span>
-          <span className="flex items-center gap-1 text-sm">
-            <span>🇸🇬</span>
-            <span>🇨🇾</span>
-            <span>🇿🇦</span>
-            <span>🇧🇩</span>
-          </span>
+        {/* Global Country Badge SVG (herocountybaget.svg from public/images) */}
+        <div className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-black/70 border border-emerald-500/40 shadow-[0_0_20px_rgba(16,185,129,0.15)] backdrop-blur-md mb-6">
+          <div className="relative w-[340px] sm:w-[406px] h-6 flex items-center justify-center">
+            <Image
+              src="/images/herocountybaget.svg"
+              alt="Designing across 8+ countries"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+        </div>
+
+        {/* "Book a Call ->" Button with Animated Moving White Border */}
+        <div className="relative group inline-flex rounded-xl p-[1.5px] overflow-hidden shadow-[0_0_35px_rgba(109,40,217,0.5)] hover:shadow-[0_0_50px_rgba(109,40,217,0.7)] transition-shadow">
+          {/* Animated Spinning Conic Light Beam for Border */}
+          <div className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#ffffff_340deg,transparent_360deg)] animate-[spin_3s_linear_infinite]" />
+
+          {/* Inner Button Content */}
+          <a
+            href="#contact"
+            className="relative z-10 flex items-center gap-2 px-8 py-3.5 rounded-[inherit] bg-gradient-to-r from-[#6320EE] via-[#7028E8] to-[#7C3AED] hover:from-[#561CD0] hover:to-[#6D28D9] text-white font-title font-bold text-sm sm:text-base tracking-wide transition-all active:scale-[0.98] select-none"
+          >
+            <span>Book a Call</span>
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
         </div>
       </div>
 
-      {/* Floating Bottom-Right Support Chat Widget (As seen in screenshot) */}
+      {/* Floating Bottom-Right Support Chat Widget */}
       <div className="fixed bottom-6 right-6 z-50 pointer-events-auto">
         <a
           href="https://wa.me/"
