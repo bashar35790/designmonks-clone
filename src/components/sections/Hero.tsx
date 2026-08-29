@@ -56,7 +56,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto flex flex-col items-center px-4 sm:px-6 lg:px-8 mb-14">
+      <div className="relative z-10 max-w-6xl mx-auto flex flex-col items-center px-4 sm:px-6 lg:px-8 mb-16">
         {/* Top Logo: designmonks */}
         <div className="mb-5 select-none">
           <span className="font-title font-extrabold text-2xl sm:text-3xl tracking-tight text-white">
@@ -94,7 +94,7 @@ export function Hero() {
         </div>
 
         {/* Main Display Headline Matching Screenshot */}
-        <h1 className="font-title text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold text-white tracking-tight leading-[1.12] mb-8 max-w-5xl">
+        <h1 className="font-title text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-bold text-white tracking-tight leading-[1.12] mb-8 max-w-5xl">
           We <span className="font-brand italic font-normal text-white">Design</span> Products That <br />
           Drive{" "}
           <span className="inline-flex items-center align-middle mx-1 sm:mx-3 -translate-y-1">
@@ -153,10 +153,10 @@ export function Hero() {
         </div>
       </div>
 
-      {/* 2 Continuous Moving Dual-Marquee Rows (Smooth, Visibly Dynamic & Non-Stopping) */}
+      {/* 2 Continuous Moving Dual-Marquee Rows (12 Images Each) */}
       <div className="w-full space-y-4 sm:space-y-6 overflow-hidden relative z-10">
         {/* Row 1: Left Direction (Images 1 - 12) */}
-        <Marquee direction="left" duration="38s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="left" speed="slow" repeat={2}>
           {HERO_MARQUEE_ROW_1.map((src, idx) => (
             <div
               key={idx}
@@ -174,7 +174,7 @@ export function Hero() {
         </Marquee>
 
         {/* Row 2: Right Direction (Images 13 - 24) */}
-        <Marquee direction="right" duration="38s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="right" speed="slow" repeat={2}>
           {HERO_MARQUEE_ROW_2.map((src, idx) => (
             <div
               key={idx}
