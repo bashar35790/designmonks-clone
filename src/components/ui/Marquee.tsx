@@ -44,12 +44,12 @@ export function Marquee({
       <div
         style={animationStyle}
         className={cn(
-          "flex shrink-0 items-center justify-around gap-4 sm:gap-6 animate-marquee-left [transform:translateZ(0)]",
+          "flex shrink-0 items-center justify-around gap-2 sm:gap-3 animate-marquee-left [transform:translateZ(0)]",
           pauseOnHover && "group-hover:[animation-play-state:paused]"
         )}
       >
         {Array.from({ length: repeat }).map((_, i) => (
-          <div key={i} className="flex shrink-0 items-center gap-4 sm:gap-6">
+          <div key={i} className="flex shrink-0 items-center gap-2 sm:gap-3">
             {children}
           </div>
         ))}
@@ -58,12 +58,12 @@ export function Marquee({
         style={animationStyle}
         aria-hidden="true"
         className={cn(
-          "flex shrink-0 items-center justify-around gap-4 sm:gap-6 animate-marquee-left [transform:translateZ(0)]",
+          "flex shrink-0 items-center justify-around gap-2 sm:gap-3 animate-marquee-left [transform:translateZ(0)]",
           pauseOnHover && "group-hover:[animation-play-state:paused]"
         )}
       >
         {Array.from({ length: repeat }).map((_, i) => (
-          <div key={`dup-${i}`} className="flex shrink-0 items-center gap-4 sm:gap-6">
+          <div key={`dup-${i}`} className="flex shrink-0 items-center gap-2 sm:gap-3">
             {children}
           </div>
         ))}

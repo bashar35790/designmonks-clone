@@ -1,140 +1,160 @@
 "use client";
 
-import React, { useState } from "react";
-import { COMPARISON_DATA } from "@/data/comparison";
-import { Check, X, Sparkles } from "lucide-react";
+import React from "react";
+import { Check, X, Users, Paintbrush, User, Briefcase, Smile } from "lucide-react";
+
+interface ComparisonRow {
+  platform: string;
+  description: string;
+  icon: React.ReactNode;
+  isMonk?: boolean;
+  speed: boolean;
+  flexibility: boolean;
+  quality: boolean;
+  scalability: boolean;
+  affordability: boolean;
+}
+
+const COMPARISON_DATA: ComparisonRow[] = [
+  {
+    platform: "Design Monks",
+    description: "Expert-driven & committed to higher quality. Get effective result & full support without hiring in-house employees",
+    icon: <Smile className="w-5 h-5 text-white" />,
+    isMonk: true,
+    speed: true,
+    flexibility: true,
+    quality: true,
+    scalability: true,
+    affordability: true,
+  },
+  {
+    platform: "In House Team",
+    description: "A full-time designer may ensure brand consistency, but there's a risk of limited expertise even though you pay regularly",
+    icon: <Users className="w-5 h-5 text-blue-300" />,
+    speed: false,
+    flexibility: false,
+    quality: false,
+    scalability: true,
+    affordability: false,
+  },
+  {
+    platform: "Creative Agencies",
+    description: "Agencies offer structured processes but mostly with high costs, long timelines, and less flexibility for your projects",
+    icon: <Paintbrush className="w-5 h-5 text-blue-300" />,
+    speed: false,
+    flexibility: false,
+    quality: true,
+    scalability: true,
+    affordability: false,
+  },
+  {
+    platform: "Freelancers",
+    description: "Freelancers may provide affordable design services but they mostly lack consistency, reliability, and collaboration",
+    icon: <User className="w-5 h-5 text-blue-300" />,
+    speed: false,
+    flexibility: true,
+    quality: false,
+    scalability: false,
+    affordability: true,
+  },
+  {
+    platform: "Self-Service Tools",
+    description: "DIY tools like website builders are budget-friendly, but you can't expect strategic thinking & originality",
+    icon: <Briefcase className="w-5 h-5 text-blue-300" />,
+    speed: false,
+    flexibility: false,
+    quality: true,
+    scalability: true,
+    affordability: false,
+  },
+];
 
 export function ComparisonTable() {
-  const [activeTab, setActiveTab] = useState<"inHouse" | "agencies" | "freelancers" | "diy">("agencies");
-
-  const renderCell = (val: string | boolean, isMonk = false) => {
-    if (typeof val === "boolean") {
-      return val ? (
-        <span className={`inline-flex p-1 rounded-full ${isMonk ? "bg-purple-500/30 text-purple-300" : "bg-white/10 text-white"}`}>
-          <Check className="w-4 h-4" />
-        </span>
-      ) : (
-        <span className="inline-flex p-1 rounded-full bg-red-500/10 text-red-400">
-          <X className="w-4 h-4" />
-        </span>
-      );
-    }
-    return (
-      <span className={`text-xs ${isMonk ? "font-bold text-purple-300" : "text-zinc-400"}`}>
-        {val}
-      </span>
-    );
-  };
-
-  const competitorLabels = {
-    inHouse: "In-House Team",
-    agencies: "Traditional Agencies",
-    freelancers: "Freelancers",
-    diy: "DIY Builders",
-  };
-
   return (
-    <section id="compare" className="py-24 bg-[#06030F] text-white relative overflow-hidden">
-      {/* Top Green/Purple Neon Aurora Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-b from-emerald-500/15 via-purple-600/15 to-transparent blur-[120px] pointer-events-none" />
+    <section id="compare" className="py-24 bg-[#090A0F] text-white relative overflow-hidden font-sans">
+      {/* Top Subtle Ambient Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-emerald-500/10 blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 block mb-2">
-            WHY SETTLE FOR LESS?
-          </span>
-          <h2 className="font-title text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight mb-4">
-            Design Monks&apos;s Alternative?{" "}
-            <span className="font-brand italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-emerald-300">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="inline-flex items-center px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-950/20 text-emerald-400 text-xs font-medium mb-6">
+            Why Choose Us
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            Design Monks&apos;s Alternative? <br />
+            <span className="font-serif italic font-normal text-white">
               Think One More Time!
             </span>
           </h2>
-          <p className="font-body text-purple-200/70 text-sm sm:text-base leading-relaxed">
-            See how our dedicated agile squads deliver 3x faster turnaround with zero bloated management overhead.
-          </p>
         </div>
 
-        {/* Desktop Comparison Table */}
-        <div className="hidden lg:block overflow-hidden rounded-3xl bg-zinc-950/80 border border-white/[0.1] shadow-2xl backdrop-blur-xl">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="border-b border-white/[0.08] bg-zinc-900/60">
-                <th className="p-6 text-xs font-mono font-bold uppercase tracking-widest text-zinc-400">
-                  Feature / Criteria
-                </th>
-                <th className="p-6 text-sm font-title font-bold text-white bg-purple-950/40 border-x border-purple-500/30 relative">
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-purple-400" />
-                    <span className="text-purple-300 font-bold">Design Monks</span>
-                  </div>
-                  <span className="text-[10px] font-mono text-zinc-400 block mt-0.5">Top 1% Dedicated Squad</span>
-                </th>
-                <th className="p-6 text-xs font-title font-semibold text-zinc-300">In-House Hire</th>
-                <th className="p-6 text-xs font-title font-semibold text-zinc-300">Traditional Agency</th>
-                <th className="p-6 text-xs font-title font-semibold text-zinc-300">Freelancers</th>
-                <th className="p-6 text-xs font-title font-semibold text-zinc-300">DIY / Templates</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-white/[0.06] text-xs">
-              {COMPARISON_DATA.map((row, idx) => (
-                <tr key={idx} className="hover:bg-white/[0.02] transition-colors">
-                  <td className="p-6 font-semibold text-white">{row.feature}</td>
-                  <td className="p-6 bg-purple-950/30 border-x border-purple-500/30">
-                    {renderCell(row.designMonks, true)}
-                  </td>
-                  <td className="p-6">{renderCell(row.inHouse)}</td>
-                  <td className="p-6">{renderCell(row.agencies)}</td>
-                  <td className="p-6">{renderCell(row.freelancers)}</td>
-                  <td className="p-6">{renderCell(row.diy)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        {/* Table Container */}
+        <div className="w-full overflow-x-auto no-scrollbar">
+          <div className="min-w-[800px]">
 
-        {/* Mobile Tab-Switcher */}
-        <div className="lg:hidden">
-          <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 no-scrollbar">
-            {(Object.keys(competitorLabels) as (keyof typeof competitorLabels)[]).map((key) => (
-              <button
-                key={key}
-                onClick={() => setActiveTab(key)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
-                  activeTab === key
-                    ? "bg-purple-600 text-white shadow-lg shadow-purple-600/30"
-                    : "bg-zinc-900 border border-white/10 text-zinc-400 hover:text-white"
-                }`}
-              >
-                vs {competitorLabels[key]}
-              </button>
-            ))}
-          </div>
-
-          <div className="space-y-4">
-            {COMPARISON_DATA.map((row, idx) => (
-              <div key={idx} className="p-5 rounded-2xl bg-zinc-950 border border-white/[0.08]">
-                <h4 className="font-semibold text-white text-sm mb-3">{row.feature}</h4>
-                <div className="grid grid-cols-2 gap-3 pt-3 border-t border-white/[0.06]">
-                  <div className="p-3 rounded-xl bg-purple-950/40 border border-purple-500/30">
-                    <span className="text-[10px] font-mono uppercase text-purple-400 block mb-1 font-bold">
-                      Design Monks
-                    </span>
-                    {renderCell(row.designMonks, true)}
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-zinc-900 border border-white/10">
-                    <span className="text-[10px] font-mono uppercase text-zinc-500 block mb-1">
-                      {competitorLabels[activeTab]}
-                    </span>
-                    {renderCell(row[activeTab])}
-                  </div>
-                </div>
+            {/* Table Header Row */}
+            <div className="grid grid-cols-12 items-center px-6 py-4 text-xs font-semibold text-zinc-300 border-b border-zinc-800/60 mb-4">
+              <div className="col-span-6 text-left font-bold text-sm text-white">Platform</div>
+              <div className="col-span-6 grid grid-cols-5 text-center text-zinc-400 font-medium">
+                <span>Speed</span>
+                <span>Flexibility</span>
+                <span>Quality</span>
+                <span>Scalability</span>
+                <span>Affordability</span>
               </div>
-            ))}
+            </div>
+
+            {/* Table Body Rows */}
+            <div className="space-y-4">
+              {COMPARISON_DATA.map((row, idx) => (
+                <div
+                  key={idx}
+                  className={`grid grid-cols-12 items-center p-6 rounded-2xl transition-all ${row.isMonk
+                    ? "bg-gradient-to-r from-[#211142] via-[#1B1238] to-[#2B1147] border border-purple-500/40 shadow-xl shadow-purple-950/40"
+                    : "bg-[#0B0D14]/80 border-b border-zinc-800/40 hover:bg-zinc-900/30"
+                    }`}
+                >
+                  {/* Platform Title + Description */}
+                  <div className="col-span-6 flex items-start gap-4 pr-6">
+                    <div className={`p-3 rounded-xl shrink-0 flex items-center justify-center ${row.isMonk
+                      ? "bg-purple-600 shadow-md shadow-purple-600/50"
+                      : "bg-[#111827] border border-zinc-800"
+                      }`}>
+                      {row.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-base font-bold text-white mb-1">{row.platform}</h3>
+                      <p className="text-xs text-zinc-400 leading-relaxed max-w-md">
+                        {row.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Criteria Checklist Indicators */}
+                  <div className="col-span-6 grid grid-cols-5 items-center justify-items-center">
+                    {[row.speed, row.flexibility, row.quality, row.scalability, row.affordability].map((isCheck, i) => (
+                      <div key={i} className="flex items-center justify-center">
+                        {isCheck ? (
+                          <Check className="w-5 h-5 text-white stroke-[2.5]" />
+                        ) : (
+                          <X className="w-5 h-5 text-red-500/80 stroke-[2]" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
+
       </div>
     </section>
   );
 }
+
+export default ComparisonTable;
