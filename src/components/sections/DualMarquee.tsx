@@ -80,14 +80,14 @@ export function DualMarquee() {
   const renderLogo = (item: { src: string; name: string }, idx: number) => (
     <div
       key={idx}
-      className="flex items-center justify-center h-14 sm:h-16 md:h-20 px-6 sm:px-10 md:px-12 flex-shrink-0"
+      className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-3 sm:px-4 md:px-5 flex-shrink-0"
     >
-      <div className="relative h-7 sm:h-9 md:h-11 w-32 sm:w-44 md:w-52 flex items-center justify-center">
+      <div className="relative h-10 sm:h-12 md:h-14 w-40 sm:w-52 md:w-64 flex items-center justify-center">
         <Image
           src={item.src}
           alt={item.name}
           fill
-          className="object-contain filter invert opacity-75 hover:opacity-100 transition-opacity duration-300"
+          className="object-contain filter invert opacity-80 hover:opacity-100 transition-opacity duration-300"
         />
       </div>
     </div>
@@ -95,31 +95,31 @@ export function DualMarquee() {
 
   return (
     <section className="relative -mt-10 sm:-mt-16 pt-20 pb-28 bg-white text-zinc-900 rounded-t-[40px] sm:rounded-t-[70px] md:rounded-t-[90px] shadow-[0_-25px_60px_rgba(0,0,0,0.12)] border-t border-zinc-200/80 z-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 text-center mb-16">
+      <div className="max-w-7xl mx-auto px-4 text-center mb-14">
         <h3 className="font-title text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight">
           Trusted by 200+ of the world&apos;s top brands
         </h3>
       </div>
 
-      {/* 4 Continuous Marquee Rows with Crisp Charcoal Monochrome SVGs */}
-      <div className="space-y-6 sm:space-y-8 md:space-y-10">
+      {/* 4 Continuous Marquee Rows with Larger Logos, Tighter Spacing & Slower Glide */}
+      <div className="space-y-3 sm:space-y-4 md:space-y-5">
         {/* Row 1: Left */}
-        <Marquee direction="left" duration="35s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="left" duration="58s" pauseOnHover={false} repeat={2}>
           {ROW_1_LOGOS.map(renderLogo)}
         </Marquee>
 
         {/* Row 2: Right */}
-        <Marquee direction="right" duration="35s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="right" duration="58s" pauseOnHover={false} repeat={2}>
           {ROW_2_LOGOS.map(renderLogo)}
         </Marquee>
 
         {/* Row 3: Left */}
-        <Marquee direction="left" duration="35s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="left" duration="58s" pauseOnHover={false} repeat={2}>
           {ROW_3_LOGOS.map(renderLogo)}
         </Marquee>
 
         {/* Row 4: Right */}
-        <Marquee direction="right" duration="35s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="right" duration="58s" pauseOnHover={false} repeat={2}>
           {ROW_4_LOGOS.map(renderLogo)}
         </Marquee>
       </div>
