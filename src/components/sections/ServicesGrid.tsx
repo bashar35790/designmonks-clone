@@ -1,123 +1,281 @@
 "use client";
 
-import React, { useState } from "react";
-import { SERVICES_LIST } from "@/data/services";
-import { ArrowRight, CheckCircle2, Layout, Code2, Sparkles, Layers } from "lucide-react";
+import React, { useRef } from "react";
+import { ArrowRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-const RIGHT_COLLAGE_ITEMS = [
-  { img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop", title: "Mobile Fintech UI", tag: "iOS App", bg: "bg-emerald-950/40 border-emerald-500/30" },
-  { img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop", title: "Analytics Pro Console", tag: "SaaS Dashboard", bg: "bg-blue-950/40 border-blue-500/30" },
-  { img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop", title: "Spatial 3D Studio", tag: "3D Brand", bg: "bg-purple-950/40 border-purple-500/30" },
-  { img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=600&auto=format&fit=crop", title: "Gaming Commerce Hub", tag: "Framer CMS", bg: "bg-orange-950/40 border-orange-500/30" },
-  { img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop", title: "AI Pipeline Engine", tag: "Web App", bg: "bg-teal-950/40 border-teal-500/30" },
-  { img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=600&auto=format&fit=crop", title: "Geneva Watch Vault", tag: "Luxury Store", bg: "bg-amber-950/40 border-amber-500/30" },
+interface ServiceSection {
+  id: string;
+  title: string;
+  italicTitle: string;
+  description: string;
+  card1: {
+    title: string;
+    bgColor: string;
+    image: string;
+  };
+  card2: {
+    title: string;
+    bgColor: string;
+    image: string;
+  };
+}
+
+const SERVICES_DATA: ServiceSection[] = [
+  {
+    id: "ui-ux",
+    title: "UI/UX",
+    italicTitle: "Design",
+    description:
+      "UI/UX Design, App Design, Website Design, Dashboard Design, Wireframing & Prototyping, Interaction Design, and Product Design.",
+    card1: {
+      title: "Help Organize Your Meeting Schedule",
+      bgColor: "bg-[#7DD3FC]",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=900&auto=format&fit=crop",
+    },
+    card2: {
+      title: "Mobile Fintech & Card UI",
+      bgColor: "bg-[#86EFAC]",
+      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=900&auto=format&fit=crop",
+    },
+  },
+  {
+    id: "web-dev",
+    title: "Web",
+    italicTitle: "Development",
+    description:
+      "Frontend Development, Fullstack Web Apps, Next.js & React Architecture, CMS Integration, Performance Optimization, and Interactive Builds.",
+    card1: {
+      title: "Dashboard Overview (+23.05%)",
+      bgColor: "bg-[#FB923C]",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=900&auto=format&fit=crop",
+    },
+    card2: {
+      title: "Interactive E-Commerce Web Portal",
+      bgColor: "bg-[#FDE047]",
+      image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=900&auto=format&fit=crop",
+    },
+  },
+  {
+    id: "branding",
+    title: "Logo &",
+    italicTitle: "Branding",
+    description:
+      "Logo Design, Full Branding, Business Branding, 3D Logo, Custom Logo, Visual Identity, Brand Strategy, Social Media Branding, and Brand Guidelines.",
+    card1: {
+      title: "Startio Brand Identity System",
+      bgColor: "bg-[#10B981]",
+      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=900&auto=format&fit=crop",
+    },
+    card2: {
+      title: "Mobile Iconography & Widgets",
+      bgColor: "bg-[#4ADE80]",
+      image: "https://images.unsplash.com/photo-1616469829941-c7200edec809?q=80&w=900&auto=format&fit=crop",
+    },
+  },
+  {
+    id: "experiences",
+    title: "Design for",
+    italicTitle: "Experiences",
+    description:
+      "Design System Architecture, Micro-interactions, Motion Design, Product Growth UI, Conversion Optimization, and Multi-platform Scaling.",
+    card1: {
+      title: "Design for Experiences",
+      bgColor: "bg-[#FDBA74]",
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=900&auto=format&fit=crop",
+    },
+    card2: {
+      title: "Transforming Ideas into Digital Stories",
+      bgColor: "bg-[#5EEAD4]",
+      image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=900&auto=format&fit=crop",
+    },
+  },
 ];
 
 export function ServicesGrid() {
-  const [activeService, setActiveService] = useState(SERVICES_LIST[0].id);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  // Calculate active index dynamically from 0 to 3
+  const activeIndexFloat = useTransform(scrollYProgress, [0, 0.33, 0.66, 1], [0, 1, 2, 3]);
 
   return (
-    <section id="services" className="py-24 bg-[#080511] text-white relative overflow-hidden">
-      {/* Background Lighting */}
-      <div className="absolute top-1/3 left-10 w-96 h-96 bg-purple-600/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column: Sticky Service Details (5 cols) */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-8">
-            <div>
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-400 block mb-2">
-                WHAT WE DO
-              </span>
-              <h2 className="font-title text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight mb-4">
-                We Design Brands That{" "}
-                <span className="font-brand italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-300 to-emerald-300">
-                  Speak to Audiences
-                </span>
-              </h2>
-              <p className="font-body text-purple-200/70 text-sm sm:text-base leading-relaxed">
-                Transforming complex product logic into effortless, delightful customer journeys.
-              </p>
-            </div>
-
-            {/* Service Selection List */}
-            <div className="space-y-3">
-              {SERVICES_LIST.map((service) => {
-                const isActive = activeService === service.id;
-                return (
-                  <div
-                    key={service.id}
-                    onClick={() => setActiveService(service.id)}
-                    className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer ${
-                      isActive
-                        ? "bg-purple-950/40 border-purple-500/50 shadow-lg shadow-purple-900/20"
-                        : "bg-zinc-950/50 border-white/[0.06] hover:border-white/[0.14]"
-                    }`}
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className={`font-title font-bold text-base ${isActive ? "text-white" : "text-zinc-300"}`}>
-                        {service.number} {service.title}
-                      </h4>
-                      <span className="text-xs font-mono text-purple-400">→</span>
-                    </div>
-                    {isActive && (
-                      <div className="space-y-3 pt-2 text-xs text-zinc-400 font-body">
-                        <p>{service.description}</p>
-                        <div className="space-y-1.5 pt-2">
-                          {service.deliverables.slice(0, 3).map((d, dIdx) => (
-                            <div key={dIdx} className="flex items-center gap-2 text-zinc-300">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                              <span>{d}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* CTA */}
-            <div>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-title font-bold text-sm shadow-xl shadow-purple-600/30 transition-all active:scale-95"
-              >
-                <span>Book a Call Directly</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
+    <section
+      id="services"
+      ref={containerRef}
+      className="relative bg-[#040406] text-white"
+      style={{ height: "420vh" }} // Provides the scroll space for sticky transition
+    >
+      {/* Sticky Fullscreen Container */}
+      <div className="sticky top-0 h-screen w-full flex flex-col justify-between py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+        {/* Top Header */}
+        <div className="text-left mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-emerald-500/40 bg-emerald-950/30 text-emerald-400 text-xs font-semibold mb-3 sm:mb-4">
+            <span>What We Do</span>
           </div>
 
-          {/* Right Column: 2-Column Staggered Masonry Collage of Mobile/Web Screens (7 cols) */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {RIGHT_COLLAGE_ITEMS.map((item, idx) => (
-              <div
-                key={idx}
-                className={`rounded-3xl p-3 bg-zinc-950 border ${item.bg} shadow-2xl hover:scale-[1.02] transition-transform duration-300 flex flex-col justify-between ${
-                  idx % 2 === 1 ? "sm:mt-8" : ""
-                }`}
-              >
-                <div className="rounded-2xl overflow-hidden aspect-[4/5] bg-zinc-900 mb-3 relative">
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/70 text-white text-[10px] font-mono backdrop-blur-md border border-white/10">
-                    {item.tag}
-                  </span>
-                </div>
-                <div className="px-2 pb-1 flex items-center justify-between">
-                  <span className="font-title font-bold text-sm text-white">
-                    {item.title}
-                  </span>
-                  <span className="text-xs text-purple-400 font-mono">View UI</span>
-                </div>
-              </div>
-            ))}
+          <h2 className="font-title text-3xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight leading-[1.12]">
+            We Design <span className="font-brand italic font-normal text-white">Brands</span> That{" "}
+            <span className="font-brand italic font-normal text-white">Speak</span> to Audiences
+          </h2>
+        </div>
+
+        {/* Center Grid: Left Text Navigation & Right Staggered Image Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center flex-1 my-auto">
+          {/* Left Column: Interactive Service Text */}
+          <div className="lg:col-span-5 space-y-6 sm:space-y-7">
+            {SERVICES_DATA.map((service, idx) => {
+              // Smooth opacity for each step
+              const stepOpacity = useTransform(
+                scrollYProgress,
+                [
+                  (idx - 0.5) / 3.5,
+                  idx / 3.5,
+                  (idx + 0.5) / 3.5,
+                ],
+                [0.35, 1, idx === 3 ? 1 : 0.35]
+              );
+
+              return (
+                <motion.div
+                  key={service.id}
+                  style={{
+                    opacity: stepOpacity,
+                  }}
+                  className="transition-all duration-300"
+                >
+                  <h3 className="font-title text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-snug">
+                    {service.title}{" "}
+                    <span className="font-brand italic font-normal text-white">
+                      {service.italicTitle}
+                    </span>
+                  </h3>
+
+                  {/* Expandable description */}
+                  <motion.div
+                    style={{
+                      opacity: useTransform(
+                        scrollYProgress,
+                        [(idx - 0.2) / 3.5, idx / 3.5, (idx + 0.3) / 3.5],
+                        [0, 1, idx === 3 ? 1 : 0]
+                      ),
+                      height: useTransform(
+                        scrollYProgress,
+                        [(idx - 0.2) / 3.5, idx / 3.5, (idx + 0.3) / 3.5],
+                        ["0px", "auto", idx === 3 ? "auto" : "0px"]
+                      ),
+                    }}
+                    className="overflow-hidden space-y-3 pt-2"
+                  >
+                    <div className="h-0.5 w-12 bg-[#6D28D9] rounded-full" />
+                    <p className="text-xs sm:text-sm text-zinc-300/90 leading-relaxed font-body max-w-sm">
+                      {service.description}
+                    </p>
+                    <div>
+                      <a
+                        href="#contact"
+                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-title font-bold text-[#8B5CF6] hover:text-[#A78BFA] transition-colors"
+                      >
+                        <span>See More</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Right Column: Sticky Card Pairs */}
+          <div className="lg:col-span-7 relative h-[360px] sm:h-[420px] md:h-[480px] w-full flex items-center justify-center">
+            {SERVICES_DATA.map((service, idx) => {
+              // Fade and slide transitions between image pairs
+              const cardOpacity = useTransform(
+                scrollYProgress,
+                [
+                  (idx - 0.35) / 3.5,
+                  idx / 3.5,
+                  (idx + 0.35) / 3.5,
+                ],
+                [0, 1, idx === 3 ? 1 : 0]
+              );
+
+              const cardY = useTransform(
+                scrollYProgress,
+                [
+                  (idx - 0.35) / 3.5,
+                  idx / 3.5,
+                  (idx + 0.35) / 3.5,
+                ],
+                [40, 0, idx === 3 ? 0 : -40]
+              );
+
+              const cardScale = useTransform(
+                scrollYProgress,
+                [
+                  (idx - 0.35) / 3.5,
+                  idx / 3.5,
+                  (idx + 0.35) / 3.5,
+                ],
+                [0.94, 1, idx === 3 ? 1 : 0.94]
+              );
+
+              return (
+                <motion.div
+                  key={service.id}
+                  style={{
+                    opacity: cardOpacity,
+                    y: cardY,
+                    scale: cardScale,
+                    pointerEvents: idx === 3 ? "auto" : "none",
+                  }}
+                  className="absolute inset-0 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-7 items-center"
+                >
+                  {/* Card 1 */}
+                  <div
+                    className={`rounded-[32px] p-4 sm:p-5 ${service.card1.bgColor} aspect-[4/5] shadow-2xl overflow-hidden relative group flex items-center justify-center`}
+                  >
+                    <img
+                      src={service.card1.image}
+                      alt={service.card1.title}
+                      className="w-full h-full object-cover rounded-2xl shadow-xl"
+                    />
+                  </div>
+
+                  {/* Card 2 (Staggered Vertical Offset) */}
+                  <div
+                    className={`rounded-[32px] p-4 sm:p-5 ${service.card2.bgColor} aspect-[4/5] shadow-2xl overflow-hidden relative group sm:mt-10 flex items-center justify-center`}
+                  >
+                    <img
+                      src={service.card2.image}
+                      alt={service.card2.title}
+                      className="w-full h-full object-cover rounded-2xl shadow-xl"
+                    />
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Bottom Centered "Book a Call ->" Purple CTA Button with Moving Border */}
+        <div className="text-center pt-4">
+          <div className="relative group inline-flex rounded-full p-[1.5px] overflow-hidden shadow-[0_4px_25px_rgba(109,40,217,0.5)] hover:shadow-[0_4px_35px_rgba(109,40,217,0.7)] transition-shadow">
+            {/* Animated Spinning Conic Light Beam for White Border */}
+            <div className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#ffffff_340deg,transparent_360deg)] animate-[spin_3s_linear_infinite]" />
+
+            {/* Inner Button Content */}
+            <a
+              href="#contact"
+              className="relative z-10 flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#5B1FE6] via-[#6D28D9] to-[#8032F0] hover:from-[#501ACF] hover:to-[#7329E0] text-white font-title font-extrabold text-sm transition-all duration-300 active:scale-[0.98] whitespace-nowrap overflow-hidden select-none cursor-pointer"
+            >
+              <span>Book a Call</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </div>

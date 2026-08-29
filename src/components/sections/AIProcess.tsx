@@ -55,7 +55,7 @@ export function AIProcess() {
     <section
       id="process"
       ref={containerRef}
-      className="relative -mt-10 sm:-mt-16 pt-20 pb-24 bg-[#030206] text-white rounded-t-[40px] sm:rounded-t-[70px] md:rounded-t-[90px] border-t border-white/[0.08] shadow-[0_-25px_60px_rgba(0,0,0,0.8)] overflow-hidden"
+      className="relative -mt-10 sm:-mt-16 pt-20 pb-24 bg-[#030206] text-white md:rounded-2xl overflow-hidden"
     >
       {/* Ambient Lighting Background */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-purple-600/10 rounded-full blur-[160px] pointer-events-none" />
