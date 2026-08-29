@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import { Marquee } from "@/components/ui/Marquee";
 
@@ -80,46 +79,41 @@ export function DualMarquee() {
   const renderLogo = (item: { src: string; name: string }, idx: number) => (
     <div
       key={idx}
-      className="flex items-center justify-center h-16 sm:h-20 md:h-24 px-3 sm:px-4 md:px-5 flex-shrink-0"
+      className="flex items-center justify-center px-5 sm:px-7 flex-shrink-0"
     >
-      <div className="relative h-10 sm:h-12 md:h-14 w-40 sm:w-52 md:w-64 flex items-center justify-center">
+      <div className="relative h-6 sm:h-7 md:h-8 w-24 sm:w-28 md:w-32 flex items-center justify-center">
         <Image
           src={item.src}
           alt={item.name}
           fill
-          className="object-contain filter invert opacity-80 hover:opacity-100 transition-opacity duration-300"
+          className="object-contain filter brightness-0 opacity-40 hover:opacity-100 transition-all duration-300"
         />
       </div>
     </div>
   );
 
   return (
-    <section className="relative -mt-10 sm:-mt-16 pt-20 pb-28 bg-white text-zinc-900 rounded-t-[40px] sm:rounded-t-[70px] md:rounded-t-[90px] shadow-[0_-25px_60px_rgba(0,0,0,0.12)] border-t border-zinc-200/80 z-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 text-center mb-14">
-        <h3 className="font-title text-2xl sm:text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight">
+    <section className="relative -mt-10 sm:-mt-16 pt-16 pb-20 bg-white text-zinc-900 rounded-t-2xl sm:rounded-t-[50px] md:rounded-t-[65px] shadow-[0_-20px_50px_rgba(0,0,0,0.06)] border-t border-zinc-100 z-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 text-center mb-10 sm:mb-12">
+        <h3 className="font-title text-xl sm:text-2xl md:text-3xl font-semibold text-zinc-800 tracking-tight">
           Trusted by 200+ of the world&apos;s top brands
         </h3>
       </div>
 
-      {/* 4 Continuous Marquee Rows with Larger Logos, Tighter Spacing & Slower Glide */}
-      <div className="space-y-3 sm:space-y-4 md:space-y-5">
-        {/* Row 1: Left */}
-        <Marquee direction="left" duration="58s" pauseOnHover={false} repeat={2}>
+      <div className="space-y-4 sm:space-y-6">
+        <Marquee direction="left" duration="80s" pauseOnHover={false} repeat={2}>
           {ROW_1_LOGOS.map(renderLogo)}
         </Marquee>
 
-        {/* Row 2: Right */}
-        <Marquee direction="right" duration="58s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="right" duration="80s" pauseOnHover={false} repeat={2}>
           {ROW_2_LOGOS.map(renderLogo)}
         </Marquee>
 
-        {/* Row 3: Left */}
-        <Marquee direction="left" duration="58s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="left" duration="80s" pauseOnHover={false} repeat={2}>
           {ROW_3_LOGOS.map(renderLogo)}
         </Marquee>
 
-        {/* Row 4: Right */}
-        <Marquee direction="right" duration="58s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="right" duration="80s" pauseOnHover={false} repeat={2}>
           {ROW_4_LOGOS.map(renderLogo)}
         </Marquee>
       </div>
