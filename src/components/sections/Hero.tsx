@@ -153,10 +153,10 @@ export function Hero() {
         </div>
       </div>
 
-      {/* 2 Continuous Moving Dual-Marquee Rows (Smooth, Non-Stopping on Hover) */}
+      {/* 2 Continuous Moving Dual-Marquee Rows (Smooth, Visibly Dynamic & Non-Stopping) */}
       <div className="w-full space-y-4 sm:space-y-6 overflow-hidden relative z-10">
         {/* Row 1: Left Direction (Images 1 - 12) */}
-        <Marquee direction="left" duration="80s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="left" duration="38s" pauseOnHover={false} repeat={2}>
           {HERO_MARQUEE_ROW_1.map((src, idx) => (
             <div
               key={idx}
@@ -174,7 +174,7 @@ export function Hero() {
         </Marquee>
 
         {/* Row 2: Right Direction (Images 13 - 24) */}
-        <Marquee direction="right" duration="80s" pauseOnHover={false} repeat={2}>
+        <Marquee direction="right" duration="38s" pauseOnHover={false} repeat={2}>
           {HERO_MARQUEE_ROW_2.map((src, idx) => (
             <div
               key={idx}
