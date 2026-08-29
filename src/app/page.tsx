@@ -19,11 +19,11 @@ import ResourceMarquee from "@/components/sections/ResourceMarquee";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#080808] text-[#F5F5F7] flex flex-col selection:bg-purple-500 selection:text-white pb-16">
+    <div className="min-h-screen bg-[#080808] text-[#F5F5F7] flex flex-col selection:bg-purple-500 selection:text-white">
       {/* Top Header & Bottom Floating Dock Navbar */}
       <Header />
 
-      <main className="flex-1 flex flex-col">
+      <main className="flex-1 flex flex-col pb-16">
         {/* 1. Hero Section (Purple Nebula + Project Collage) */}
         <Hero />
 
