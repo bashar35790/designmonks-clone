@@ -1,9 +1,11 @@
 "use client";
 
 import React from "react";
+import { cn } from "@/lib/utils";
+import { Marquee } from "@/components/ui/Marquee";
 
-// Sample text items for the top and bottom marquees
-const marqueeItems = [
+
+const textItems = [
     "Slide Decks",
     "Mobile Apps",
     "Figma",
@@ -15,8 +17,7 @@ const marqueeItems = [
     "Webflow",
 ];
 
-// Sample showcase items alternating between mobile frame ratio and laptop/tablet ratio
-const showcaseItems = [
+const mediaItems = [
     {
         type: "mobile",
         image: "https://images.unsplash.com/photo-1616469829941-c7200edec809?q=80&w=600&auto=format&fit=crop",
@@ -30,7 +31,7 @@ const showcaseItems = [
     {
         type: "mobile",
         image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop",
-        alt: "Travel Mobile App",
+        alt: "Travel App",
     },
     {
         type: "desktop",
@@ -40,68 +41,65 @@ const showcaseItems = [
     {
         type: "mobile",
         image: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=600&auto=format&fit=crop",
-        alt: "AI NFT App",
+        alt: "AI App",
     },
     {
         type: "desktop",
         image: "https://images.unsplash.com/photo-1481487196290-c152efe083f5?q=80&w=900&auto=format&fit=crop",
-        alt: "E-Commerce Website",
-    },
-    {
-        type: "mobile",
-        image: "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?q=80&w=600&auto=format&fit=crop",
-        alt: "Healthcare App",
+        alt: "E-Commerce",
     },
 ];
 
 export function ResourceMarquee() {
     return (
-        <section className="py-16 bg-[#F3EBF9] overflow-hidden select-none flex flex-col gap-10">
+        <section className="py-16 bg-[#F3EBF9] overflow-hidden select-none flex flex-col gap-8">
 
-            {/* 1ST MARQUEE: Text Moving Left */}
-            <div className="flex overflow-hidden whitespace-nowrap">
-                <div className="flex animate-marquee items-center gap-6 shrink-0 text-zinc-800 font-medium text-sm sm:text-base tracking-wide">
-                    {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, index) => (
-                        <React.Fragment key={`top-${index}`}>
-                            <span>{item}</span>
-                            <span className="w-1.5 h-1.5 rounded-full bg-zinc-900 inline-block" />
-                        </React.Fragment>
+            {/* 1st Row: Text Marquee (Left) */}
+            <Marquee speed={40} gradient={false} pauseOnHover>
+                <div className="flex items-center gap-8 pr-8">
+                    {textItems.map((item, index) => (
+                        <div key={`top-${index}`} className="flex items-center gap-8">
+                            <span className="text-zinc-900 font-medium text-base tracking-tight">{item}</span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-zinc-900 shrink-0" />
+                        </div>
                     ))}
                 </div>
-            </div>
+            </Marquee>
 
-            {/* 2ND MARQUEE: Device Mockup Cards Moving Right */}
-            <div className="flex overflow-hidden whitespace-nowrap py-2">
-                <div className="flex animate-marquee-reverse items-center gap-6 shrink-0">
-                    {[...showcaseItems, ...showcaseItems].map((card, index) => (
+            {/* 2nd Row: Image Devices Marquee (Right) */}
+            <Marquee speed={50} direction="right" gradient={false} pauseOnHover>
+                <div className="flex items-center gap-6 pr-6 py-2">
+                    {mediaItems.map((item, index) => (
                         <div
-                            key={`card-${index}`}
-                            className={`relative overflow-hidden rounded-[2.5rem] border-[6px] border-zinc-900 bg-zinc-900 shadow-2xl shrink-0 transition-transform duration-300 hover:scale-[1.02] ${card.type === "mobile"
-                                ? "w-[160px] sm:w-[200px] h-[300px] sm:h-[360px]"
-                                : "w-[300px] sm:w-[460px] h-[300px] sm:h-[360px]"
-                                }`}
+                            key={`img-${index}`}
+                            className={cn(
+                                "relative overflow-hidden rounded-[2.2rem] border-[5px] border-zinc-900 bg-zinc-900 shadow-xl shrink-0 transition-transform duration-300 hover:scale-[1.02]",
+                                item.type === "mobile"
+                                    ? "w-[170px] sm:w-[210px] h-[320px] sm:h-[370px]"
+                                    : "w-[320px] sm:w-[480px] h-[320px] sm:h-[370px]"
+                            )}
                         >
                             <img
-                                src={card.image}
-                                alt={card.alt}
-                                className="w-full h-full object-cover rounded-[2rem]"
+                                src={item.image}
+                                alt={item.alt}
+                                className="w-full h-full object-cover rounded-[1.8rem]"
                             />
                         </div>
                     ))}
                 </div>
-            </div>
+            </Marquee>
 
-            {/* 3RD MARQUEE: Text Moving Left */}
-            <div className="flex overflow-hidden whitespace-nowrap">
-                <div className="flex animate-marquee items-center gap-6 shrink-0 text-zinc-800 font-medium text-sm sm:text-base tracking-wide">
-                    {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, index) => (
-                        <React.Fragment key={`bottom-${index}`}>
-                            <span>{item}</span>
-                            <span className="w-1.5 h-1.5 rounded-full bg-zinc-900 inline-block" />
-                        </React.Fragment>
+            {/* 3rd Row: Text Marquee (Left) */}
+            <Marquee speed={40} gradient={false} pauseOnHover>
+                <div className="flex items-center gap-8 pr-8">
+                    {textItems.map((item, index) => (
+                        <div key={`bottom-${index}`} className="flex items-center gap-8">
+                            <span className="text-zinc-900 font-medium text-base tracking-tight">{item}</span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-zinc-900 shrink-0" />
+                        </div>
                     ))}
                 </div>
-            </div>
+            </Marquee>
 
         </section>
     );

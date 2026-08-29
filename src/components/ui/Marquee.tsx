@@ -22,25 +22,17 @@ export function Marquee({
   className,
   repeat = 2,
 }: MarqueeProps) {
-  const speedDurations: Record<string, string> = {
+  const speedDurations = {
     slow: "75s",
     normal: "45s",
     fast: "25s",
   };
 
-  const dur = duration || speedDurations[speed];
-  const keyframeName = direction === "right" ? "marqueeRight" : "marqueeLeft";
-
-  // Use full animation shorthand to avoid any CSS class specificity conflicts
   const animationStyle: React.CSSProperties = {
-    animation: `${keyframeName} ${dur} linear infinite`,
+    animationDuration: duration || speedDurations[speed],
+    animationDirection: direction === "right" ? "reverse" : "normal",
     willChange: "transform",
   };
-
-  const trackClass = cn(
-    "flex shrink-0 items-center gap-4 sm:gap-6 [transform:translateZ(0)]",
-    pauseOnHover && "group-hover:[animation-play-state:paused]"
-  );
 
   return (
     <div
@@ -49,17 +41,27 @@ export function Marquee({
         className
       )}
     >
-      {/* Track A */}
-      <div style={animationStyle} className={trackClass}>
+      <div
+        style={animationStyle}
+        className={cn(
+          "flex shrink-0 items-center justify-around gap-4 sm:gap-6 animate-marquee-left [transform:translateZ(0)]",
+          pauseOnHover && "group-hover:[animation-play-state:paused]"
+        )}
+      >
         {Array.from({ length: repeat }).map((_, i) => (
           <div key={i} className="flex shrink-0 items-center gap-4 sm:gap-6">
             {children}
           </div>
         ))}
       </div>
-
-      {/* Track B — duplicate, stays in sync */}
-      <div style={animationStyle} aria-hidden="true" className={trackClass}>
+      <div
+        style={animationStyle}
+        aria-hidden="true"
+        className={cn(
+          "flex shrink-0 items-center justify-around gap-4 sm:gap-6 animate-marquee-left [transform:translateZ(0)]",
+          pauseOnHover && "group-hover:[animation-play-state:paused]"
+        )}
+      >
         {Array.from({ length: repeat }).map((_, i) => (
           <div key={`dup-${i}`} className="flex shrink-0 items-center gap-4 sm:gap-6">
             {children}
