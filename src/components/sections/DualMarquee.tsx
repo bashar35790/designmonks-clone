@@ -79,9 +79,9 @@ export function DualMarquee() {
   const renderLogo = (item: { src: string; name: string }, idx: number) => (
     <div
       key={idx}
-      className="flex items-center justify-center px-5 sm:px-7 flex-shrink-0"
+      className="flex items-center justify-center px-2 sm:px-2 flex-shrink-0"
     >
-      <div className="relative h-6 sm:h-7 md:h-8 w-24 sm:w-28 md:w-32 flex items-center justify-center">
+      <div className="relative h-10 sm:h-12 md:h-12 w-24 sm:w-28 md:w-32 flex items-center justify-center">
         <Image
           src={item.src}
           alt={item.name}
