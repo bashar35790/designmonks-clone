@@ -125,8 +125,8 @@ export function Hero() {
         </h1>
 
         {/* Global Country Badge SVG */}
-        <div className="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 rounded-full bg-black/70 border border-emerald-500/40 shadow-[0_0_20px_rgba(16,185,129,0.15)] backdrop-blur-md mb-6">
-          <div className="relative w-full max-w-[340px] sm:max-w-[406px] h-6 flex items-center justify-center">
+        <div className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-black/70 border border-emerald-500/40 shadow-[0_0_20px_rgba(16,185,129,0.15)] backdrop-blur-md mb-6">
+           <div className="relative w-[340px] sm:w-[406px] h-6 flex items-center justify-center">
             <Image
               src="/images/herocountybaget.svg"
               alt="Designing across 8+ countries"
