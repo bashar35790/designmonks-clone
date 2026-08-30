@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Outfit, Red_Hat_Display, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { Footer } from "@/components/layout/Footer";
+import { CookieBanner } from "@/components/layout/CookieBanner";
+import { Header } from "@/components/layout/Header";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -52,7 +55,13 @@ export default function RootLayout({
       <body className="min-h-screen bg-[#080808] text-[#F5F5F7] font-body antialiased selection:bg-emerald-500 selection:text-black overflow-x-hidden"
         cz-shortcut-listen="true"
       >
+        <Header />
         {children}
+              {/* Global Mega Footer with 3D Globe Horizon & Massive Wordmark */}
+      <Footer />
+
+      {/* Cookie Consent Banner */}
+      <CookieBanner />
       </body>
     </html>
   );

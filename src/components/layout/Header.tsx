@@ -13,7 +13,7 @@ export function Header() {
         
         {/* Projects Link */}
         <a
-          href="#projects"
+          href="/projects"
           className="px-3 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold text-zinc-300 hover:text-white transition-colors whitespace-nowrap"
         >
           Projects

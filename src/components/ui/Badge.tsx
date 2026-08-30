@@ -46,7 +46,7 @@ export function MediaPreviewCard({ type = "services" }: MediaPreviewCardProps) {
           </div>
 
           <div>
-            <p className="text-zinc-300 text-sm font-medium">We've helped</p>
+            <p className="text-zinc-300 text-sm font-medium">We&apos;ve helped</p>
             <h3 className="text-white text-2xl font-black tracking-tight mt-0.5">
               150 startups <span className="text-purple-400 font-normal">in</span>
             </h3>

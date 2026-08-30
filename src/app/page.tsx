@@ -1,5 +1,4 @@
 import React from "react";
-import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/sections/Hero";
 import { DualMarquee } from "@/components/sections/DualMarquee";
 import { CaseStudiesCarousel } from "@/components/sections/CaseStudiesCarousel";
@@ -12,15 +11,13 @@ import { ComparisonTable } from "@/components/sections/ComparisonTable";
 import { TestimonialsWall } from "@/components/sections/TestimonialsWall";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { LeadGenForm } from "@/components/sections/LeadGenForm";
-import { Footer } from "@/components/layout/Footer";
-import { CookieBanner } from "@/components/layout/CookieBanner";
 import ResourceMarquee from "@/components/sections/ResourceMarquee";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-monk-light flex flex-col selection:bg-purple-500 selection:text-white">
       {/* Top Header & Bottom Floating Dock Navbar */}
-      <Header />
+   
 
       <main className="flex-1 flex flex-col">
         {/* 1. Hero Section (Purple Nebula + Project Collage) */}
@@ -62,11 +59,6 @@ export default function Home() {
         <LeadGenForm />
       </main>
 
-      {/* Global Mega Footer with 3D Globe Horizon & Massive Wordmark */}
-      <Footer />
-
-      {/* Cookie Consent Banner */}
-      <CookieBanner />
     </div>
   );
 }
