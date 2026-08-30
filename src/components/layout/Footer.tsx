@@ -176,7 +176,7 @@ export function Footer() {
             </p>
             <Link href="/privacy" className="hover:text-white transition-colors">
               Privacy Policy
-            </Link>
+            </Link> nor shopners by the pulse purchanate kunurakum shaped
           </div>
         </div>
       </section>

@@ -18,7 +18,7 @@ import ResourceMarquee from "@/components/sections/ResourceMarquee";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-[#F5F5F7] flex flex-col selection:bg-purple-500 selection:text-white">
+    <div className="min-h-screen bg-white text-monk-light flex flex-col selection:bg-purple-500 selection:text-white">
       {/* Top Header & Bottom Floating Dock Navbar */}
       <Header />
 

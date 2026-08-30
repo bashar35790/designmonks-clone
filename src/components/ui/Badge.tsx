@@ -1,52 +1,71 @@
-import React from "react";
-import { cn } from "@/lib/utils";
+"use client";
 
-interface BadgeProps {
-  children: React.ReactNode;
-  variant?: "default" | "emerald" | "violet" | "outline" | "glass";
-  size?: "sm" | "md";
-  className?: string;
-  dot?: boolean;
+import React, { useState } from "react";
+import { Volume2, VolumeX } from "lucide-react";
+
+interface MediaPreviewCardProps {
+  type?: "services" | "more";
 }
 
-export function Badge({
-  children,
-  variant = "default",
-  size = "md",
-  className,
-  dot = false,
-}: BadgeProps) {
-  const variantStyles = {
-    default: "bg-white/[0.08] text-white/90 border border-white/[0.1]",
-    emerald: "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20",
-    violet: "bg-violet-500/10 text-violet-400 border border-violet-500/20",
-    outline: "bg-transparent text-zinc-300 border border-white/15",
-    glass: "glass-panel text-white/90 border-white/10",
-  };
-
-  const sizeStyles = {
-    sm: "text-[11px] px-2.5 py-0.5 gap-1.5",
-    md: "text-xs px-3 py-1 gap-2",
-  };
+export function MediaPreviewCard({ type = "services" }: MediaPreviewCardProps) {
+  const [isMuted, setIsMuted] = useState(true);
 
   return (
-    <span
-      className={cn(
-        "inline-flex items-center font-medium rounded-full backdrop-blur-sm transition-colors",
-        variantStyles[variant],
-        sizeStyles[size],
-        className
+    <div className="relative w-full md:w-[300px] lg:w-[340px] h-[360px] md:h-[400px] shrink-0 rounded-2xl bg-zinc-950 overflow-hidden flex flex-col justify-between p-6 shadow-lg">
+      {/* Background Gradient / Video Container */}
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/30 via-zinc-900 to-zinc-950 z-0 pointer-events-none" />
+
+      {type === "services" ? (
+        /* Image 1 Visual Style Placeholder */
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center">
+          <div className="w-16 h-16 rounded-full bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-4">
+            <span className="w-6 h-6 rounded-full bg-purple-500 animate-pulse" />
+          </div>
+          <p className="text-white text-sm font-semibold">Featured Work Showcase</p>
+          <p className="text-zinc-400 text-xs mt-1">Interactive UI/UX & Web Solutions</p>
+        </div>
+      ) : (
+        /* Image 2 Visual Style: Startups & Client Logos Showcase */
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center space-y-4">
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <span className="bg-white/10 border border-white/10 text-white text-[10px] font-medium px-2.5 py-1 rounded-full backdrop-blur-md">
+              Oter
+            </span>
+            <span className="bg-white/10 border border-white/10 text-white text-[10px] font-medium px-2.5 py-1 rounded-full backdrop-blur-md">
+              Property Finder
+            </span>
+            <span className="bg-white/10 border border-white/10 text-white text-[10px] font-medium px-2.5 py-1 rounded-full backdrop-blur-md">
+              Pepsi
+            </span>
+            <span className="bg-white/10 border border-white/10 text-white text-[10px] font-medium px-2.5 py-1 rounded-full backdrop-blur-md">
+              যান্ত্রিক
+            </span>
+            <span className="bg-white/10 border border-white/10 text-white text-[10px] font-medium px-2.5 py-1 rounded-full backdrop-blur-md">
+              Telenor
+            </span>
+          </div>
+
+          <div>
+            <p className="text-zinc-300 text-sm font-medium">We've helped</p>
+            <h3 className="text-white text-2xl font-black tracking-tight mt-0.5">
+              150 startups <span className="text-purple-400 font-normal">in</span>
+            </h3>
+            <p className="text-zinc-400 text-xs mt-1">in 7 countries</p>
+          </div>
+        </div>
       )}
-    >
-      {dot && (
-        <span
-          className={cn(
-            "w-1.5 h-1.5 rounded-full animate-pulse",
-            variant === "emerald" ? "bg-emerald-400" : "bg-white"
-          )}
-        />
-      )}
-      {children}
-    </span>
+
+      {/* Mute Button Bottom Right */}
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsMuted(!isMuted);
+        }}
+        className="absolute bottom-4 right-4 z-20 w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 border border-white/10 backdrop-blur-md flex items-center justify-center text-white transition-all active:scale-95"
+        aria-label="Toggle audio"
+      >
+        {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+      </button>
+    </div>
   );
 }
