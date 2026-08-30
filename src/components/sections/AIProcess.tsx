@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import { ArrowRight, Smile } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 import { Marquee } from "@/components/ui/Marquee";
 import { motion, useInView } from "framer-motion";
 
@@ -88,7 +88,7 @@ export function AIProcess() {
               {/* Outer Cyan Glow Aura */}
               <div className="absolute -inset-6 bg-cyan-400/30 rounded-full blur-2xl animate-pulse" />
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#0A1628]/95 border-2 border-cyan-400 shadow-[0_0_40px_rgba(34,211,238,0.7),inset_0_0_20px_rgba(34,211,238,0.4)] backdrop-blur-xl flex items-center justify-center text-white relative z-10">
-                <Smile className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
+                <MessageSquare className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
               </div>
             </div>
           </div>

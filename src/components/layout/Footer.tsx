@@ -77,7 +77,7 @@ export function Footer() {
   return (
     <footer className="w-full bg-monk-dark text-white overflow-hidden relative font-body">
       {/* SECTION 1: Locations with Video Background */}
-      <section className="relative min-h-[550px] lg:min-h-[650px] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative min-h-[550px] lg:min-h-[650px] flex items-end justify-center py-20 px-4 sm:px-6 lg:px-8">
         <div className="absolute h-full w-full inset-0 z-0 overflow-hidden">
           <video
             autoPlay

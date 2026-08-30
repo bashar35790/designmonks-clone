@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Star, ArrowRight, Smile } from "lucide-react";
+import { Star, ArrowRight, MessageSquare } from "lucide-react";
 import { Marquee } from "@/components/ui/Marquee";
 
 const HERO_MARQUEE_ROW_1 = [
@@ -203,7 +203,7 @@ export function Hero() {
           className="relative w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-[#8B5CF6] hover:bg-[#7C3AED] text-white flex items-center justify-center shadow-[0_10px_30px_rgba(139,92,246,0.6)] hover:scale-105 active:scale-95 transition-all group"
           aria-label="Live Chat Support"
         >
-          <Smile className="w-6 sm:w-7 h-6 sm:h-7" />
+          <MessageSquare className="w-6 sm:w-7 h-6 sm:h-7" />
           <span className="absolute top-0 right-0 w-3.5 h-3.5 rounded-full bg-[#10B981] border-2 border-[#12072B] animate-pulse" />
         </a>
       </div>
