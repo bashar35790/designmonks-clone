@@ -23,7 +23,7 @@ export default function Home() {
       {/* Top Header & Bottom Floating Dock Navbar */}
       <Header />
 
-      <main className="flex-1 flex flex-col pb-16">
+      <main className="flex-1 flex flex-col">
         {/* 1. Hero Section (Purple Nebula + Project Collage) */}
         <Hero />
 

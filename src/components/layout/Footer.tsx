@@ -75,16 +75,16 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[#080808] text-white overflow-hidden relative font-body">
+    <footer className="w-full bg-monk-dark text-white overflow-hidden relative font-body">
       {/* SECTION 1: Locations with Video Background */}
       <section className="relative min-h-[550px] lg:min-h-[650px] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
-        <div className="absolute top-0 inset-0 z-0 overflow-hidden">
+        <div className="absolute h-full w-full inset-0 z-0 overflow-hidden">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover opacity-80"
+            className="w-full h-fit top-0  object-cover opacity-80"
             poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop"
           >
             <source src="/videos/footer_globe.mp4" type="video/mp4" />
@@ -112,7 +112,7 @@ export function Footer() {
       </section>
 
       {/* SECTION 2: Navigation Links */}
-      <section className="relative z-10 border-t border-white/5 bg-[#080808] pt-16 pb-12 px-4 sm:px-6 lg:px-8">
+      <section className="relative z-10 border-t border-white/5 bg-monk-dark pt-16 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
@@ -149,7 +149,7 @@ export function Footer() {
       </div>
 
       {/* SECTION 3: Partners & Legal Bar */}
-      <section className="relative z-10 bg-[#080808] pt-12 pb-6 px-4 sm:px-6 lg:px-8">
+      <section className="relative z-10 bg-monk-dark pt-12 pb-6 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Partner Badges */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-center">
