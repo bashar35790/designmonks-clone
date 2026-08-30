@@ -2,34 +2,41 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 export function ShowreelBlock() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Track scroll through the section
+  // Track raw scroll progress
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  // Scale smoothly from card-size to 100% full-screen dimensions
-  const scale = useTransform(scrollYProgress, [0, 0.8], [0.65, 1]);
-  const borderRadius = useTransform(scrollYProgress, [0, 0.7], [32, 0]);
+  // Apply Spring Physics to make the scroll movement ultra-smooth
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
-  // Header text fades out early into the scroll
-  const headerOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-  const headerY = useTransform(scrollYProgress, [0, 0.2], [0, -40]);
+  // Smooth Interpolations based on spring progress
+  const scale = useTransform(smoothProgress, [0, 0.85], [0.65, 1]);
+  const borderRadius = useTransform(smoothProgress, [0, 0.75], [32, 0]);
+
+  // Header text fades out smoothly early into scroll
+  const headerOpacity = useTransform(smoothProgress, [0, 0.25], [1, 0]);
+  const headerY = useTransform(smoothProgress, [0, 0.25], [0, -40]);
 
   return (
     <section
       ref={containerRef}
-      className="relative -mb-10 bg-white w-full pt-20 "
-      style={{ height: "300vh" }}
+      className="relative -mb-10 bg-white w-full pt-20"
+      style={{ height: "250vh" }}
     >
       {/* Sticky Full Viewport Container */}
-      <div className="sticky top-0 h-screen w-full left-0 flex flex-col items-center justify-center overflow-hidden">
-
+      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
+        
         {/* Subtle Background Dot Grid */}
         <div
           className="absolute inset-0 pointer-events-none opacity-40"
@@ -69,14 +76,14 @@ export function ShowreelBlock() {
           }}
           className="relative w-full h-full max-w-full max-h-full overflow-hidden shadow-[0_30px_90px_rgba(0,0,0,0.18)] will-change-transform origin-center transform-gpu z-10"
         >
-          <div className="relative w-full h-full bg-zinc-950">
+          <div className="relative w-full h-full bg-zinc-950 transform-gpu overflow-hidden">
             <video
               autoPlay
               muted
               loop
               playsInline
               preload="metadata"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transform-gpu pointer-events-none"
               poster="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1800&auto=format&fit=crop"
             >
               <source src="/videos/DM Showreel 2026.mp4" type="video/mp4" />
@@ -114,7 +121,7 @@ export function ShowreelBlock() {
                 </svg>
 
                 {/* Center Play Button Icon */}
-                <div className="relative z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-purple-600/90 hover:bg-purple-500 backdrop-blur-md flex items-center justify-center shadow-2xl shadow-purple-600/50 transition-all duration-300 group-hover:scale-110 active:scale-95">
+                <div className="relative z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-purple-600/90 hover:bg-purple-500 backdrop-blur-md flex items-center justify-center shadow-2xl shadow-purple-600/50 transition-transform duration-300 group-hover:scale-110 active:scale-95">
                   <Image
                     src="/videoplay.svg"
                     alt="Play"
