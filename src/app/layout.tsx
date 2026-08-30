@@ -52,7 +52,7 @@ export default function RootLayout({
       lang="en"
       className={`${outfit.variable} ${redHatDisplay.variable} ${playfairDisplay.variable} dark scroll-smooth`}
     >
-      <body className="min-h-screen bg-[#080808] text-[#F5F5F7] font-body antialiased selection:bg-emerald-500 selection:text-black overflow-x-hidden"
+      <body className="min-h-screen text-monk-light font-body antialiased selection:bg-emerald-500 selection:text-black overflow-x-hidden"
         cz-shortcut-listen="true"
       >
         <Header />

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { MegaMenu } from "@/components/layout/MegaMenu";
 
 export function Header() {
@@ -12,12 +13,12 @@ export function Header() {
       <nav className="pointer-events-auto relative flex items-center gap-1 sm:gap-3 px-2 sm:px-4 py-2 rounded-full bg-[#070709] border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.9)] backdrop-blur-3xl">
         
         {/* Projects Link */}
-        <a
+        <Link
           href="/projects"
           className="px-3 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold text-zinc-300 hover:text-white transition-colors whitespace-nowrap"
         >
           Projects
-        </a>
+        </Link>
 
         {/* Services Link with Upward Mega-Menu */}
         <div
