@@ -71,7 +71,7 @@ const COMPARISON_DATA: ComparisonRow[] = [
 
 export function ComparisonTable() {
   return (
-    <section id="compare" className="py-24 bg-[#090A0F] text-white relative overflow-hidden font-sans">
+    <section id="compare" className="py-24 bg-[#090A0F] text-white rounded-2xl relative overflow-hidden font-sans">
       {/* Top Subtle Ambient Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[100px] bg-[#12693d] blur-[140px] pointer-events-none" />
 

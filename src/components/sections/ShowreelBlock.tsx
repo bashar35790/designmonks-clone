@@ -24,7 +24,7 @@ export function ShowreelBlock() {
   return (
     <section
       ref={containerRef}
-      className="relative bg-white w-full pt-20 "
+      className="relative -mb-10 bg-white w-full pt-20 "
       style={{ height: "300vh" }}
     >
       {/* Sticky Full Viewport Container */}

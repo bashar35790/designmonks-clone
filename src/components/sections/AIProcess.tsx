@@ -55,12 +55,12 @@ export function AIProcess() {
     <section
       id="process"
       ref={containerRef}
-      className="relative -mt-10 sm:-mt-16 pt-20 pb-24 bg-[#030206] text-white md:rounded-2xl overflow-hidden"
+      className="relative And so now cursor can do that too, especially after the hack and having a company that was focused on WordPress, knowing that the response times would wick, it responded immediately in chat#030206] text-white bg-black rounded-2xl overflow-hidden py-20"
     >
       {/* Ambient Lighting Background */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-purple-600/10 rounded-full blur-[160px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <div className="max-w-7xl rounded-2xl mx-auto rounded-2xl px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         {/* Tag Chip */}
         <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-emerald-500/50 bg-emerald-950/40 text-emerald-400 text-xs font-semibold mb-6">
           <span>AI-Powered Design</span>

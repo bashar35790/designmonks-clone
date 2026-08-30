@@ -88,7 +88,7 @@ export function Hero() {
 
         {/* Eyebrow: Leading UI/UX Design Agency */}
         <div className="mb-4">
-          <span className="font-title text-sm sm:text-base font-semibold text-white tracking-wide">
+          <span className="font-title text-xl font-bold text-white ">
             Leading UI/UX Design Agency
           </span>
         </div>

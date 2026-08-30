@@ -9,7 +9,6 @@ import { ShowreelBlock } from "@/components/sections/ShowreelBlock";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { ComparisonTable } from "@/components/sections/ComparisonTable";
-import { CareersTeaser } from "@/components/sections/CareersTeaser";
 import { TestimonialsWall } from "@/components/sections/TestimonialsWall";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { LeadGenForm } from "@/components/sections/LeadGenForm";
@@ -19,7 +18,7 @@ import ResourceMarquee from "@/components/sections/ResourceMarquee";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#080808] text-[#F5F5F7] flex flex-col selection:bg-purple-500 selection:text-white">
+    <div className="min-h-screen bg-white text-[#F5F5F7] flex flex-col selection:bg-purple-500 selection:text-white">
       {/* Top Header & Bottom Floating Dock Navbar */}
       <Header />
 

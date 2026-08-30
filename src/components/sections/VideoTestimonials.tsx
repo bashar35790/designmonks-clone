@@ -155,7 +155,7 @@ export function VideoTestimonials() {
               <span>Client Stories</span>
             </div>
 
-            <h2 className="font-title text-4xl sm:text-6xl font-extrabold text-zinc-900 tracking-tight leading-[1.12]">
+            <h2 className="font-title text-4xl md:text-5xl font-bold text-zinc-900 tracking-tight leading-[1.12]">
               Success <span className="font-brand italic font-normal text-zinc-900">Stories</span> <br />
               That <span className="font-brand italic font-normal text-zinc-900">Inspire Us</span>
             </h2>
