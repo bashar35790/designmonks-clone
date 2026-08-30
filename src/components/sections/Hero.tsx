@@ -58,7 +58,7 @@ export function Hero() {
 
       <div className="relative z-10 max-w-6xl mx-auto flex flex-col items-center px-4 sm:px-6 lg:px-8 mb-16">
         {/* Top Logo: designmonks */}
-        <div className="mb-5 select-none">
+        <div className="mb-10 select-none">
           <span className="font-title font-extrabold text-2xl sm:text-3xl tracking-tight text-white">
             designmonks
           </span>

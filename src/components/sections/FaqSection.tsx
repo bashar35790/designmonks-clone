@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { FAQ_ITEMS } from "@/data/faq";
-import { Plus, Minus } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function FaqSection() {
@@ -15,12 +15,12 @@ export function FaqSection() {
   return (
     <section
       id="faq"
-      className="py-24 bg-white text-zinc-900 relative overflow-hidden border-b border-zinc-200"
+      className="py-24 bg-[#FAF9FB] text-zinc-900 relative overflow-hidden"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-1 rounded-full border border-emerald-500/30 bg-emerald-50/50 text-emerald-600 text-xs font-medium mb-6">
+          <div className="inline-flex items-center px-4 py-1.5 font-medium rounded-full border border-emerald-500/30 bg-emerald-50 text-emerald-600 text-sm mb-6">
             Frequently Asked Questions
           </div>
           <h2 className="font-title text-3xl sm:text-5xl font-bold text-zinc-900 tracking-tight leading-tight mb-4">
@@ -35,38 +35,33 @@ export function FaqSection() {
           </p>
         </div>
 
-        {/* Accordion List */}
-        <div className="space-y-4 mb-12">
+        {/* Minimal Accordion List */}
+        <div className="divide-y divide-zinc-200/80 border-b border-zinc-200/80 mb-12">
           {FAQ_ITEMS.map((item, idx) => {
             const isOpen = openIndex === idx;
             return (
-              <div
-                key={item.id}
-                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                  isOpen
-                    ? "bg-purple-50/40 border-purple-300 shadow-md"
-                    : "bg-zinc-50/50 border-zinc-200/80 hover:border-zinc-300"
-                }`}
-              >
+              <div key={item.id} className="py-6 transition-colors">
                 <button
                   onClick={() => toggle(idx)}
-                  className="w-full py-5 px-6 sm:px-8 flex items-center justify-between text-left gap-4 cursor-pointer select-none"
+                  className="w-full flex items-center justify-between text-left gap-6 cursor-pointer select-none group"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-title text-base sm:text-lg font-bold text-zinc-900">
+                  <span className="font-title text-lg sm:text-xl font-bold text-zinc-900 leading-snug">
                     {item.question}
                   </span>
+                  
+                  {/* Chevron Icon Container */}
                   <span
-                    className={`p-2 rounded-full flex shrink-0 items-center justify-center transition-colors ${
+                    className={`w-10 h-10 rounded-full flex shrink-0 items-center justify-center transition-all duration-300 ${
                       isOpen
-                        ? "bg-purple-700 text-white"
-                        : "bg-zinc-200 text-zinc-700"
+                        ? "bg-[#6C38CC] text-white shadow-md shadow-purple-600/20"
+                        : "border border-purple-600/60 text-purple-600 bg-transparent group-hover:border-purple-600 group-hover:bg-purple-50/50"
                     }`}
                   >
                     {isOpen ? (
-                      <Minus className="w-4 h-4" />
+                      <ChevronUp className="w-5 h-5 stroke-[2.5]" />
                     ) : (
-                      <Plus className="w-4 h-4" />
+                      <ChevronDown className="w-5 h-5 stroke-[2]" />
                     )}
                   </span>
                 </button>
@@ -78,8 +73,9 @@ export function FaqSection() {
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
                     >
-                      <div className="px-6 sm:px-8 pb-6 text-zinc-600 text-sm sm:text-base leading-relaxed border-t border-purple-100 pt-4 font-body">
+                      <div className="pt-4 pr-12 text-zinc-600 text-sm sm:text-base leading-relaxed font-body">
                         {item.answer}
                       </div>
                     </motion.div>
@@ -93,3 +89,5 @@ export function FaqSection() {
     </section>
   );
 }
+
+export default FaqSection;
