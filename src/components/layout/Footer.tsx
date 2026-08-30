@@ -70,26 +70,21 @@ const partners = [
 ];
 
 export function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <footer className="w-full bg-monk-dark text-white overflow-hidden relative font-body">
       {/* SECTION 1: Locations with Video Background */}
-      <section className="relative min-h-[550px] lg:min-h-[650px] flex items-end justify-center py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative min-h-[600px] lg:min-h-[800px] flex items-end justify-center py-20 px-4 sm:px-6 lg:px-8">
         <div className="absolute h-full w-full inset-0 z-0 overflow-hidden">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-fit top-0  object-cover opacity-80"
+            className="absolute inset-0 w-full h-fit object-cover opacity-80"
             poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop"
           >
             <source src="/videos/footer_globe.mp4" type="video/mp4" />
           </video>
-          <div className="absolute top-0 inset-0 bg-gradient-to-t from-[#080808] via-transparent to-[#080808]/70" />
         </div>
 
         <div className="relative z-10 max-w-6xl w-full mx-auto">

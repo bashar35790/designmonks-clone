@@ -97,8 +97,8 @@ export function ServicesGrid() {
             What We Do
           </div>
           <h2 className="font-title text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-[1.15]">
-            We Design <span className="italic font-serif font-normal">Brands</span> That{" "}
-            <span className="italic font-serif font-normal">Speak</span> to Audiences
+            We Design <span className="italic font-brand font-normal">Brands</span> That{" "}
+            <span className="italic font-brand font-normal">Speak</span> to Audiences
           </h2>
         </div>
 
@@ -118,7 +118,7 @@ export function ServicesGrid() {
               >
                 <h3 className="text-3xl sm:text-4xl font-bold tracking-tight">
                   {currentService.title}{" "}
-                  <span className="italic font-serif font-normal">
+                  <span className="italic font-brand font-normal">
                     {currentService.italicTitle}
                   </span>
                 </h3>

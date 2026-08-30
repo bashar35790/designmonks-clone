@@ -83,11 +83,11 @@ export function ComparisonTable() {
             Why Choose Us
           </div>
           <h2 className="text-3xl md:text-5xl font-title font-bold text-white tracking-tight leading-tight">
-            <span className="font-serif italic font-normal text-white">
+            <span className="font-brand italic font-normal text-white">
 
             Design Monks&apos;s
             </span> Alternative? 
-            <span className="font-serif italic font-normal text-white">
+            <span className="font-brand italic font-normal text-white">
               Think 
             </span> One More Time!
           </h2>

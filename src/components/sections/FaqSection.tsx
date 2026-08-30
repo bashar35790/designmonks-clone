@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { FAQ_ITEMS } from "@/data/faq";
-import { Plus, Minus, ArrowRight } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function FaqSection() {

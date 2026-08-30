@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import confetti from "canvas-confetti";
+import Image from "next/image";
 import {
   CheckCircle2,
   ArrowRight,
@@ -13,7 +14,7 @@ import {
 } from "lucide-react";
 import { Marquee } from "../ui/Marquee";
 
-// Lucide-এ ব্র্যান্ড আইকনগুলো না থাকায় কাস্টম SVG কম্পোনেন্ট
+// Custom SVG components for brand icons not available in Lucide
 const FacebookIcon = () => (
   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -148,9 +149,11 @@ export function LeadGenForm() {
                 {/* Profile Section */}
                 <div className="space-y-4">
                   <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-xl overflow-hidden bg-gradient-to-br from-purple-200 to-indigo-300 p-1">
-                    <img
+                    <Image
                       src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop"
                       alt="Abdullah Al Noman"
+                      width={192}
+                      height={192}
                       className="w-full h-full object-cover rounded-[1.25rem]"
                     />
                   </div>
@@ -353,25 +356,33 @@ export function LeadGenForm() {
         >
           <div className="flex items-center gap-3 shrink-0 mr-6">
             <div className="flex -space-x-2">
-              <img
+              <Image
                 className="w-7 h-7 rounded-full border-2 border-[#CCFF00] object-cover"
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop"
                 alt="User"
+                width={28}
+                height={28}
               />
-              <img
+              <Image
                 className="w-7 h-7 rounded-full border-2 border-[#CCFF00] object-cover"
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
                 alt="User"
+                width={28}
+                height={28}
               />
-              <img
+              <Image
                 className="w-7 h-7 rounded-full border-2 border-[#CCFF00] object-cover"
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop"
                 alt="User"
+                width={28}
+                height={28}
               />
-              <img
+              <Image
                 className="w-7 h-7 rounded-full border-2 border-[#CCFF00] object-cover"
                 src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=100&auto=format&fit=crop"
                 alt="User"
+                width={28}
+                height={28}
               />
             </div>
 

@@ -28,7 +28,7 @@ export function ShowreelBlock() {
       style={{ height: "300vh" }}
     >
       {/* Sticky Full Viewport Container */}
-      <div className="sticky top-0 h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
+      <div className="sticky top-0 h-screen w-full left-0 flex flex-col items-center justify-center overflow-hidden">
 
         {/* Subtle Background Dot Grid */}
         <div
@@ -50,7 +50,7 @@ export function ShowreelBlock() {
 
           <h2 className="font-title text-3xl sm:text-5xl md:text-6xl font-extrabold text-zinc-900 tracking-tight leading-[1.12]">
             Why Us? Because Your{" "}
-            <span className="italic font-serif font-normal text-zinc-900">
+            <span className="italic font-brand font-normal text-zinc-900">
               Growth Is Our Mission
             </span>
           </h2>

@@ -125,8 +125,8 @@ export function Hero() {
         </h1>
 
         {/* Global Country Badge SVG */}
-        <div className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-black/70 border border-emerald-500/40 shadow-[0_0_20px_rgba(16,185,129,0.15)] backdrop-blur-md mb-6">
-          <div className="relative w-[340px] sm:w-[406px] h-6 flex items-center justify-center">
+        <div className="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 rounded-full bg-black/70 border border-emerald-500/40 shadow-[0_0_20px_rgba(16,185,129,0.15)] backdrop-blur-md mb-6">
+          <div className="relative w-full max-w-[340px] sm:max-w-[406px] h-6 flex items-center justify-center">
             <Image
               src="/images/herocountybaget.svg"
               alt="Designing across 8+ countries"
@@ -195,9 +195,9 @@ export function Hero() {
       </div>
 
       {/* Floating Bottom-Right Support Chat Widget */}
-      <div className="fixed bottom-6 right-6 z-50 pointer-events-auto">
+      <div className="fixed bottom-28 sm:bottom-6 right-4 sm:right-6 z-50 pointer-events-auto">
         <a
-          href="https://wa.me/"
+          href="https://wa.me/17165036335"
           target="_blank"
           rel="noopener noreferrer"
           className="relative w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-[#8B5CF6] hover:bg-[#7C3AED] text-white flex items-center justify-center shadow-[0_10px_30px_rgba(139,92,246,0.6)] hover:scale-105 active:scale-95 transition-all group"

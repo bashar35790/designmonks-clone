@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { Check } from "lucide-react";
 
 export function WhyChooseUs() {
@@ -16,8 +17,8 @@ export function WhyChooseUs() {
             Why Choose Us
           </div>
           <h2 className="font-title text-3xl sm:text-5xl md:text-6xl font-bold text-zinc-900 tracking-tight leading-tight">
-            Unmatched <span className="font-serif italic font-normal">Benefits</span> For{" "}
-            <span className="font-serif italic font-normal block sm:inline">Your Success</span>
+            Unmatched <span className="font-brand italic font-normal">Benefits</span> For{" "}
+            <span className="font-brand italic font-normal block sm:inline">Your Success</span>
           </h2>
         </div>
 
@@ -57,7 +58,7 @@ export function WhyChooseUs() {
             </div>
 
             {/* Overlapping Glassmorphism Cards Mockup */}
-            <div className="absolute -right-10 -bottom-14 w-80 h-56 pointer-events-none transform -rotate-12">
+            <div className="absolute -right-10 -bottom-14 w-80 h-56 pointer-events-none transform -rotate-12 hidden sm:block">
               <div className="w-full h-32 bg-gradient-to-r from-emerald-300 via-teal-200 to-lime-200 rounded-2xl shadow-xl border border-white/60 p-4 transform translate-y-6 translate-x-6">
                 <span className="text-xs font-bold text-zinc-800 tracking-wider">VISA</span>
               </div>
@@ -85,8 +86,8 @@ export function WhyChooseUs() {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <div className="flex -space-x-1.5">
-                    <img className="w-4 h-4 rounded-full border border-zinc-900" src="https://i.pravatar.cc/100?img=33" alt="user" />
-                    <img className="w-4 h-4 rounded-full border border-zinc-900" src="https://i.pravatar.cc/100?img=12" alt="user" />
+                    <Image className="w-4 h-4 rounded-full border border-zinc-900" src="https://i.pravatar.cc/100?img=33" alt="user" width={16} height={16} />
+                    <Image className="w-4 h-4 rounded-full border border-zinc-900" src="https://i.pravatar.cc/100?img=12" alt="user" width={16} height={16} />
                   </div>
                   <span className="text-[10px] text-zinc-400">3+</span>
                 </div>
@@ -94,7 +95,7 @@ export function WhyChooseUs() {
 
               {/* Message 1 */}
               <div className="flex gap-2.5">
-                <img className="w-7 h-7 rounded-full object-cover" src="https://i.pravatar.cc/100?img=33" alt="Abid" />
+                <Image className="w-7 h-7 rounded-full object-cover" src="https://i.pravatar.cc/100?img=33" alt="Abid" width={28} height={28} />
                 <div>
                   <div className="flex items-baseline gap-2">
                     <span className="font-bold text-zinc-200 text-xs">Abid Hasan</span>
@@ -106,7 +107,7 @@ export function WhyChooseUs() {
 
               {/* Message 2 */}
               <div className="flex gap-2.5">
-                <img className="w-7 h-7 rounded-full object-cover" src="https://i.pravatar.cc/100?img=12" alt="Hafij" />
+                <Image className="w-7 h-7 rounded-full object-cover" src="https://i.pravatar.cc/100?img=12" alt="Hafij" width={28} height={28} />
                 <div>
                   <div className="flex items-baseline gap-2">
                     <span className="font-bold text-zinc-200 text-xs">Hafij</span>
@@ -170,7 +171,7 @@ export function WhyChooseUs() {
                 ].map((member, i) => (
                   <div key={i} className="flex items-center justify-between gap-2">
                     <div className="flex items-center gap-2.5">
-                      <img src={member.img} alt={member.name} className="w-8 h-8 rounded-full object-cover shrink-0" />
+                      <Image src={member.img} alt={member.name} className="w-8 h-8 rounded-full object-cover shrink-0" width={32} height={32} />
                       <div>
                         <h5 className="text-xs font-bold text-zinc-900 leading-none">{member.name}</h5>
                         <span className="text-[10px] text-zinc-500">{member.role}</span>
@@ -205,12 +206,12 @@ export function WhyChooseUs() {
                 <div className="absolute w-24 h-24 rounded-full border border-blue-300/80" />
 
                 {/* Positioned Avatars */}
-                <img className="absolute top-4 left-6 w-7 h-7 rounded-full border-2 border-white shadow-md" src="https://i.pravatar.cc/100?img=47" alt="Node" />
-                <img className="absolute top-8 right-12 w-7 h-7 rounded-full border-2 border-white shadow-md" src="https://i.pravatar.cc/100?img=32" alt="Node" />
-                <img className="absolute top-20 right-4 w-7 h-7 rounded-full border-2 border-white shadow-md" src="https://i.pravatar.cc/100?img=11" alt="Node" />
-                <img className="absolute bottom-6 right-8 w-8 h-8 rounded-full border-2 border-purple-500 shadow-md" src="https://i.pravatar.cc/100?img=59" alt="Node" />
-                <img className="absolute bottom-2 left-20 w-8 h-8 rounded-full border-2 border-purple-500 shadow-md" src="https://i.pravatar.cc/100?img=65" alt="Node" />
-                <img className="absolute bottom-10 left-4 w-7 h-7 rounded-full border-2 border-white shadow-md" src="https://i.pravatar.cc/100?img=22" alt="Node" />
+                <Image className="absolute top-4 left-6 w-7 h-7 rounded-full border-2 border-white shadow-md" src="https://i.pravatar.cc/100?img=47" alt="Node" width={28} height={28} />
+                <Image className="absolute top-8 right-12 w-7 h-7 rounded-full border-2 border-white shadow-md" src="https://i.pravatar.cc/100?img=32" alt="Node" width={28} height={28} />
+                <Image className="absolute top-20 right-4 w-7 h-7 rounded-full border-2 border-white shadow-md" src="https://i.pravatar.cc/100?img=11" alt="Node" width={28} height={28} />
+                <Image className="absolute bottom-6 right-8 w-8 h-8 rounded-full border-2 border-purple-500 shadow-md" src="https://i.pravatar.cc/100?img=59" alt="Node" width={32} height={32} />
+                <Image className="absolute bottom-2 left-20 w-8 h-8 rounded-full border-2 border-purple-500 shadow-md" src="https://i.pravatar.cc/100?img=65" alt="Node" width={32} height={32} />
+                <Image className="absolute bottom-10 left-4 w-7 h-7 rounded-full border-2 border-white shadow-md" src="https://i.pravatar.cc/100?img=22" alt="Node" width={28} height={28} />
               </div>
             </div>
 

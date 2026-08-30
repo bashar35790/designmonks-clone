@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Cookie, Shield, Check, X } from "lucide-react";
+import { Cookie, Shield, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 export function CookieBanner() {

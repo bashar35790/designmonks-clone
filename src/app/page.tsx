@@ -47,7 +47,7 @@ export default function Home() {
         {/* 8. Why Choose Us / Benefits (Light Bento + Lavender Resource Marquee) */}
         <WhyChooseUs />
 
-        <ResourceMarquee></ResourceMarquee>
+        <ResourceMarquee />
 
         {/* 9. Comparison Matrix (Dark Cyber Grid with Purple Design Monks Column) */}
         <ComparisonTable />

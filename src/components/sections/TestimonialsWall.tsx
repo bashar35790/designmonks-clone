@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { TEXT_TESTIMONIALS } from "@/data/testimonials";
 import { Marquee } from "../ui/Marquee";
 
@@ -8,7 +9,6 @@ export function TestimonialsWall() {
   const row1 = TEXT_TESTIMONIALS.slice(0, 4);
   const row2 = TEXT_TESTIMONIALS.slice(4, 8);
   const row3 = TEXT_TESTIMONIALS.slice(8, 12);
-  const row4 = TEXT_TESTIMONIALS.slice(12, 16);
 
   const cycle = (start: number, count: number) =>
     Array.from({ length: count }, (_, i) => TEXT_TESTIMONIALS[(start + i) % TEXT_TESTIMONIALS.length]);
@@ -25,9 +25,11 @@ export function TestimonialsWall() {
 
       {/* Author */}
       <div className="flex items-center gap-3 pt-4">
-        <img
+        <Image
           src={t.avatar}
           alt={t.name}
+          width={40}
+          height={40}
           className="w-10 h-10 rounded-full object-cover shrink-0"
         />
         <div className="overflow-hidden">
